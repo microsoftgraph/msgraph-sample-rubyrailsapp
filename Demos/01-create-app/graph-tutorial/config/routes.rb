@@ -3,5 +3,4 @@ Rails.application.routes.draw do
   root 'home#index'
 
   # Add future routes here
-
 end
