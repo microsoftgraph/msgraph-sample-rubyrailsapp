@@ -33,7 +33,7 @@
             <% end %>
           </ul>
           <ul class="navbar-nav justify-content-end">
-            <% if true %>
+            <% if @user_name %>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                   <% if @user_avatar %>
@@ -46,12 +46,12 @@
                   <h5 class="dropdown-item-text mb-0"><%= @user_name %></h5>
                   <p class="dropdown-item-text text-muted mb-0"><%= @user_email %></p>
                   <div class="dropdown-divider"></div>
-                  <a href="#" class="dropdown-item">Sign Out</a>
+                  <%= link_to "Sign Out", {:controller => :auth, :action => :signout}, :class => "dropdown-item" %>
                 </div>
               </li>
             <% else %>
               <li class="nav-item">
-                <a href="#" class="nav-link">Sign In</a>
+                <%= link_to "Sign In", {:controller => :auth, :action => :signin}, :class => "nav-link" %>
               </li>
             <% end %>
           </ul>

@@ -46,3 +46,8 @@ bower.json
 
 # Ignore node_modules
 node_modules/
+
+# Visual Studio Code
+.vscode/
+
+oauth_environment_variables.rb

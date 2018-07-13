@@ -5,6 +5,6 @@
     <h4>Welcome <%= @user_name %>!</h4>
     <p>Use the navigation bar at the top of the page to get started.</p>
   <% else %>
-    <a href="#" class="btn btn-primary btn-large">Click here to sign in</a>
+    <%= link_to "Click here to sign in", {:controller => :auth, :action => :signin}, :class => "btn btn-primary btn-large" %>
   <% end %>
 </div>
