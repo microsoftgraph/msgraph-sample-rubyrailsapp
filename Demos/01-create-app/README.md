@@ -211,3 +211,7 @@ Now open the `./app/view/home/index.html.erb` file and replace its contents with
 Save all of your changes and restart the server. Now, the app should look very different.
 
 ![A screenshot of the redesigned home page](/Images/create-app-01.png)
+
+## Next steps
+
+Now that you've created the basic app, you can continue to the next module, [Create an Azure AD web application with the Application Registration Portal](../02-arp-app/README.md).

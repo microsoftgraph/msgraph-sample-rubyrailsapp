@@ -350,3 +350,7 @@ def access_token
   end
 end
 ```
+
+## Next steps
+
+Now that you've created the app registration, you can continue to the next module, [Extend the Ruby on Rails app for Microsoft Graph](../04-add-msgraph/README.md).

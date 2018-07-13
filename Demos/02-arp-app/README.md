@@ -37,3 +37,7 @@ In this demo, you will create a new Azure AD web application using the Applicati
         ![Screenshot of the newly added Web platform for the application](/Images/arp-create-app-05.png)
 
 1. Scroll to the bottom of the page and select **Save**.
+
+## Next steps
+
+Now that you've created the app registration, you can continue to the next module, [Extend the Ruby on Rails app for Azure AD Authentication](../03-add-aad-auth/README.md).
