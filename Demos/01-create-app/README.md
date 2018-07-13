@@ -175,7 +175,7 @@ body {
 }
 ```
 
-Now let's replace the default page with one of our own. Generate a home page controller with the following command.
+Now replace the default page with a new one. Generate a home page controller with the following command.
 
 ```Shell
 rails generate controller Home index
