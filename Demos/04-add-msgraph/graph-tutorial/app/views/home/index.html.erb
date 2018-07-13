@@ -1,0 +1,10 @@
+<div class="jumbotron">
+  <h1>Ruby Graph Tutorial</h1>
+  <p class="lead">This sample app shows how to use the Microsoft Graph API to access Outlook and OneDrive data from Ruby</p>
+  <% if @user_name %>
+    <h4>Welcome <%= @user_name %>!</h4>
+    <p>Use the navigation bar at the top of the page to get started.</p>
+  <% else %>
+    <%= link_to "Click here to sign in", {:controller => :auth, :action => :signin}, :class => "btn btn-primary btn-large" %>
+  <% end %>
+</div>

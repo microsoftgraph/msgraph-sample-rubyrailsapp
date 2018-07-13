@@ -1,0 +1,1 @@
+# Extend the Ruby on Rails app for Microsoft Graph
