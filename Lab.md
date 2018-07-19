@@ -132,6 +132,9 @@ Start by updating the global layout for the app. Open `./app/views/layouts/appli
             <% end %>
           </ul>
           <ul class="navbar-nav justify-content-end">
+            <li class="nav-item">
+              <a class="nav-link" href="https://developer.microsoft.com/graph/docs/concepts/overview" target="_blank"><i class="fas fa-external-link-alt mr-1"></i>Docs</a>
+            </li>
             <% if @user_name %>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
