@@ -166,7 +166,7 @@ Start by updating the global layout for the app. Open `./app/views/layouts/appli
           <div class="alert alert-danger" role="alert">
             <p class="mb-3"><%= error[:message] %></p>
             <%if error[:debug] %>
-              <pre class="alert-pre border bg-light p-2"><code><%= error[:debug] %></code></error>
+              <pre class="alert-pre border bg-light p-2"><code><%= error[:debug] %></code></pre>
             <% end %>
           </div>
         <% end %>
