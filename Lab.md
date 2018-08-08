@@ -5,7 +5,7 @@ In this lab you will create a Ruby on Rails web application using the Azure AD v
 ## In this lab
 
 - [Create a Ruby on Rails web app](#exercise-1-create-a-ruby-on-rails-web-app)
-- [Exercise 2: Register a web application with the Application Registration Portal](#exercise-2-register-a-web-application-with-the-application-registration-portal)
+- [Register a web application with the Application Registration Portal](#exercise-2-register-a-web-application-with-the-application-registration-portal)
 - [Extend the app for Azure AD Authentication](#exercise-3-extend-the-app-for-azure-ad-authentication)
 - [Extend the app for Microsoft Graph](#exercise-4-extend-the-app-for-microsoft-graph)
 
@@ -92,7 +92,7 @@ Finally, configure Rails to use the new session store. Create a new file called 
 Rails.application.config.session_store :active_record_store, key: '_graph_app_session'
 ```
 
-## Design the app
+### Design the app
 
 Start by updating the global layout for the app. Open `./app/views/layouts/application.html.erb` and replace its contents with the following.
 
@@ -294,7 +294,7 @@ oauth_environment_variables = File.join(Rails.root, 'config', 'oauth_environment
 load(oauth_environment_variables) if File.exist?(oauth_environment_variables)
 ```
 
-## Setup OmniAuth
+### Setup OmniAuth
 
 You've already installed the `omniauth-oauth2` gem, but in order to make it work with the Azure OAuth endpoints, you need to [create an OAuth2 strategy](https://github.com/omniauth/omniauth-oauth2#creating-an-oauth2-strategy). This is a Ruby class that defines the parameters for making OAuth requests to the Azure provider.
 
@@ -627,7 +627,7 @@ end
 
 In this exercise you will incorporate the Microsoft Graph into the application. For this application, you will use the [httparty](https://github.com/jnunemaker/httparty) gem to make calls to Microsoft Graph.
 
-## Create a Graph helper
+### Create a Graph helper
 
 Create a helper to manage all of your API calls. Run the following command in your CLI to generate the helper.
 
@@ -668,7 +668,7 @@ make_api_call `/v1.0/me`, access_token, { '$select': 'displayName' }
 
 You'll build on this later as you implement more Microsoft Graph features into the app.
 
-## Get calendar events from Outlook
+### Get calendar events from Outlook
 
 Let's start by adding the ability to view events on the user's calendar. In your CLI, run the following command to add a new controller.
 
@@ -730,7 +730,7 @@ end
 
 Restart the server. Sign in and click the **Calendar** link in the nav bar. If everything works, you should see a JSON dump of events on the user's calendar.
 
-## Display the results
+### Display the results
 
 Now you can add HTML and CSS to display the results in a more user-friendly manner.
 
