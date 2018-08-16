@@ -1,24 +1,79 @@
-# README
+# How to run the completed project
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Prerequisites
 
-Things you may want to cover:
+To run the completed project in this folder, you need the following:
 
-* Ruby version
+- [Ruby](https://www.ruby-lang.org/en/downloads/) installed on your development machine. If you do not have Ruby, visit the previous link for download options. (**Note:** This tutorial was written with Ruby version 2.4.4. The steps in this guide may work with other versions, but that has not been tested.)
+- Either a personal Microsoft account with a mailbox on Outlook.com, or a Microsoft work or school account.
 
-* System dependencies
+If you don't have a Microsoft account, there are a couple of options to get a free account:
 
-* Configuration
+- You can [sign up for a new personal Microsoft account](https://signup.live.com/signup?wa=wsignin1.0&rpsnv=12&ct=1454618383&rver=6.4.6456.0&wp=MBI_SSL_SHARED&wreply=https://mail.live.com/default.aspx&id=64855&cbcxt=mai&bk=1454618383&uiflavor=web&uaid=b213a65b4fdc484382b6622b3ecaa547&mkt=E-US&lc=1033&lic=1).
+- You can [sign up for the Office 365 Developer Program](https://developer.microsoft.com/office/dev-program) to get a free Office 365 subscription.
 
-* Database creation
+## Register a web application with the Application Registration Portal
 
-* Database initialization
+1. Open a browser and navigate to the [Application Registry Portal](https://apps.dev.microsoft.com). Login using a **personal account** (aka: Microsoft Account) or **Work or School Account**.
 
-* How to run the test suite
+1. Select **Add an app** at the top of the page.
 
-* Services (job queues, cache servers, search engines, etc.)
+    > **Note:** If you see more than one **Add an app** button on the page, select the one that corresponds to the **Converged apps** list.
 
-* Deployment instructions
+1. On the **Register your application** page, set the **Application Name** to **Ruby on Rails Graph Tutorial** and select **Create**.
 
-* ...
+    ![Screenshot of creating a new app in the App Registration Portal website](/Images/arp-create-app-01.png)
+
+1. On the **Ruby on Rails Graph Tutorial Registration** page, under the **Properties** section, copy the **Application Id** as you will need it later.
+
+    ![Screenshot of newly created application's ID](/Images/arp-create-app-02.png)
+
+1. Scroll down to the **Application Secrets** section.
+
+    1. Select **Generate New Password**.
+    1. In the **New password generated** dialog, copy the contents of the box as you will need it later.
+
+        > **Important:** This password is never shown again, so make sure you copy it now.
+
+    ![Screenshot of newly created application's password](/Images/arp-create-app-03.png)
+
+1. Scroll down to the **Platforms** section.
+
+    1. Select **Add Platform**.
+    1. In the **Add Platform** dialog, select **Web**.
+
+        ![Screenshot creating a platform for the app](/Images/arp-create-app-04.png)
+
+    1. In the **Web** platform box, enter the URL `http://localhost:3000/auth/microsoft_graph_auth/callback` for the **Redirect URLs**.
+
+        ![Screenshot of the newly added Web platform for the application](/Images/arp-create-app-05.png)
+
+1. Scroll to the bottom of the page and select **Save**.
+
+## Configure the sample
+
+1. Rename the `./config/oauth_environment_variables.rb.example` file to `oauth_environment_variables.rb`.
+1. Edit the `oauth_environment_variables.rb` file and make the following changes.
+    1. Replace `YOUR APP ID HERE` with the **Application Id** you got from the App Registration Portal.
+    1. Replace `YOUR APP PASSWORD HERE` with the password you got from the App Registration Portal.
+1. In your command-line interface (CLI), navigate to this directory and run the following command to install requirements.
+
+    ```Shell
+    bundle install
+    ```
+
+1. In your CLI, run the following command to initialize the app's database.
+
+    ```Shell
+    rake db:migrate
+    ```
+
+## Run the sample
+
+1. Run the following command in your CLI to start the application.
+
+    ```Shell
+    rails server
+    ```
+
+1. Open a browser and browse to `http://localhost:3000`.
