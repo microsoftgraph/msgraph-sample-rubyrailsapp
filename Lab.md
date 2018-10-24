@@ -277,12 +277,12 @@ In this exercise you will extend the application from the previous exercise to s
 First, create a separate file to hold your app ID and secret. Create a new file called `oauth_environment_variables.rb` in the `./config` folder, and add the following code.
 
 ```ruby
-ENV['AZURE_APP_ID'] = 'YOUR APP ID HERE'
-ENV['AZURE_APP_SECRET'] = 'YOUR APP SECRET HERE'
+ENV['AZURE_APP_ID'] = 'YOUR_APP_ID_HERE'
+ENV['AZURE_APP_SECRET'] = 'YOUR_APP_SECRET_HERE'
 ENV['AZURE_SCOPES'] = 'openid profile email offline_access user.read calendars.read'
 ```
 
-Replace `YOUR APP ID HERE` with the application ID from the Application Registration Portal, and replace `YOUR APP SECRET HERE` with the password you generated.
+Replace `YOUR_APP_ID_HERE` with the application ID from the Application Registration Portal, and replace `YOUR_APP_SECRET_HERE` with the password you generated.
 
 > **Important:** If you're using source control such as git, now would be a good time to exclude the `oauth_environment_variables.rb` file from source control to avoid inadvertently leaking your app ID and password.
 
