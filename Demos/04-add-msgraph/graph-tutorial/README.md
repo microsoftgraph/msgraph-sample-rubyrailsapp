@@ -54,7 +54,7 @@ If you don't have a Microsoft account, there are a couple of options to get a fr
 
 1. Rename the `./config/oauth_environment_variables.rb.example` file to `oauth_environment_variables.rb`.
 1. Edit the `oauth_environment_variables.rb` file and make the following changes.
-    1. Replace `YOUR APP ID HERE` with the **Application Id** you got from the App Registration Portal.
+    1. Replace `YOUR_APP_ID_HERE` with the **Application Id** you got from the App Registration Portal.
     1. Replace `YOUR APP PASSWORD HERE` with the password you got from the App Registration Portal.
 1. In your command-line interface (CLI), navigate to this directory and run the following command to install requirements.
 
