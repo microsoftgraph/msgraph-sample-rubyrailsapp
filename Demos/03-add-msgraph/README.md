@@ -1,144 +1,79 @@
-# Extend the Ruby on Rails app for Microsoft Graph
+# How to run the completed project
 
-In this demo you will incorporate the Microsoft Graph into the application. For this application, you will use the [httparty](https://github.com/jnunemaker/httparty) gem to make calls to Microsoft Graph.
+## Prerequisites
 
-## Create a Graph helper
+To run the completed project in this folder, you need the following:
 
-Create a helper to manage all of your API calls. Run the following command in your CLI to generate the helper.
+- [Ruby](https://www.ruby-lang.org/en/downloads/) installed on your development machine. If you do not have Ruby, visit the previous link for download options. (**Note:** This tutorial was written with Ruby version 2.4.4. The steps in this guide may work with other versions, but that has not been tested.)
+- Either a personal Microsoft account with a mailbox on Outlook.com, or a Microsoft work or school account.
 
-```Shell
-rails generate helper Graph
-```
+If you don't have a Microsoft account, there are a couple of options to get a free account:
 
-Open the newly created `./app/helpers/graph_helper.rb` file and replace the contents with the following.
+- You can [sign up for a new personal Microsoft account](https://signup.live.com/signup?wa=wsignin1.0&rpsnv=12&ct=1454618383&rver=6.4.6456.0&wp=MBI_SSL_SHARED&wreply=https://mail.live.com/default.aspx&id=64855&cbcxt=mai&bk=1454618383&uiflavor=web&uaid=b213a65b4fdc484382b6622b3ecaa547&mkt=E-US&lc=1033&lic=1).
+- You can [sign up for the Office 365 Developer Program](https://developer.microsoft.com/office/dev-program) to get a free Office 365 subscription.
 
-```ruby
-require 'httparty'
+## Register a web application with the Application Registration Portal
 
-# Graph API helper methods
-module GraphHelper
-  GRAPH_HOST = 'https://graph.microsoft.com'.freeze
+1. Open a browser and navigate to the [Application Registry Portal](https://apps.dev.microsoft.com). Login using a **personal account** (aka: Microsoft Account) or **Work or School Account**.
 
-  def make_api_call(endpoint, token, params = nil)
-    headers = {
-      Authorization: "Bearer #{token}"
-    }
+1. Select **Add an app** at the top of the page.
 
-    query = params || {}
+    > **Note:** If you see more than one **Add an app** button on the page, select the one that corresponds to the **Converged apps** list.
 
-    HTTParty.get "#{GRAPH_HOST}#{endpoint}",
-                 headers: headers,
-                 query: query
-  end
-end
-```
+1. On the **Register your application** page, set the **Application Name** to **Ruby on Rails Graph Tutorial** and select **Create**.
 
-Take a moment to review what this code does. It makes a simple GET request via the `httparty` gem to the requested endpoint. It sends the access token in the `Authorization` header, and it includes any query parameters that are passed.
+    ![Screenshot of creating a new app in the App Registration Portal website](/Images/arp-create-app-01.png)
 
-For example, to use the `make_api_call` method to do a GET to `https://graph.microsoft.com/v1.0/me?$select=displayName`, you could call it like so:
+1. On the **Ruby on Rails Graph Tutorial Registration** page, under the **Properties** section, copy the **Application Id** as you will need it later.
 
-```ruby
-make_api_call `/v1.0/me`, access_token, { '$select': 'displayName' }
-```
+    ![Screenshot of newly created application's ID](/Images/arp-create-app-02.png)
 
-You'll build on this later as you implement more Microsoft Graph features into the app.
+1. Scroll down to the **Application Secrets** section.
 
-## Get calendar events from Outlook
+    1. Select **Generate New Password**.
+    1. In the **New password generated** dialog, copy the contents of the box as you will need it later.
 
-Let's start by adding the ability to view events on the user's calendar. In your CLI, run the following command to add a new controller.
+        > **Important:** This password is never shown again, so make sure you copy it now.
 
-```Shell
-rails generate controller Calendar index
-```
+    ![Screenshot of newly created application's password](/Images/arp-create-app-03.png)
 
-Now that we have the route available, update the **Calendar** link in the navbar in `./app/view/layouts/application.html.erb` to use it. Replace the line `<a class="nav-link" href="#">Calendar</a>` with the following.
+1. Scroll down to the **Platforms** section.
 
-```html
-<%= link_to "Calendar", {:controller => :calendar, :action => :index}, class: "nav-link#{' active' if controller.controller_name == 'calendar'}" %>
-```
+    1. Select **Add Platform**.
+    1. In the **Add Platform** dialog, select **Web**.
 
-Add a new method to the Graph helper to [list the user's events](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_list_events). Open `./app/helpers/graph_helper.rb` and add the following method to the `GraphHelper` module.
+        ![Screenshot creating a platform for the app](/Images/arp-create-app-04.png)
 
-```ruby
-def get_calendar_events(token)
-  get_events_url = '/v1.0/me/events'
+    1. In the **Web** platform box, enter the URL `http://localhost:3000/auth/microsoft_graph_auth/callback` for the **Redirect URLs**.
 
-  query = {
-    '$select': 'subject,organizer,start,end',
-    '$orderby': 'createdDateTime DESC'
-  }
+        ![Screenshot of the newly added Web platform for the application](/Images/arp-create-app-05.png)
 
-  response = make_api_call get_events_url, token, query
+1. Scroll to the bottom of the page and select **Save**.
 
-  raise response.parsed_response.to_s || "Request returned #{response.code}" unless response.code == 200
-  response.parsed_response['value']
-end
-```
+## Configure the sample
 
-Consider what this code is doing.
+1. Rename the `./config/oauth_environment_variables.rb.example` file to `oauth_environment_variables.rb`.
+1. Edit the `oauth_environment_variables.rb` file and make the following changes.
+    1. Replace `YOUR_APP_ID_HERE` with the **Application Id** you got from the App Registration Portal.
+    1. Replace `YOUR APP PASSWORD HERE` with the password you got from the App Registration Portal.
+1. In your command-line interface (CLI), navigate to this directory and run the following command to install requirements.
 
-- The URL that will be called is `/v1.0/me/events`.
-- The `$select` parameter limits the fields returned for each events to just those our view will actually use.
-- The `$orderby` parameter sorts the results by the date and time they were created, with the most recent item being first.
-- For a successful response, it returns the array of items contained in the `value` key.
+    ```Shell
+    bundle install
+    ```
 
-Now you can test this. Open `./app/controllers/calendar_controller.rb` and update the `index` action to call this method and render the results.
+1. In your CLI, run the following command to initialize the app's database.
 
-```ruby
-# Calendar controller
-class CalendarController < ApplicationController
-  include GraphHelper
+    ```Shell
+    rake db:migrate
+    ```
 
-  def index
-    @events = get_calendar_events access_token || []
-    render json: @events
-  rescue RuntimeError => e
-    @errors = [
-      {
-        message: 'Microsoft Graph returned an error getting events.',
-        debug: e
-      }
-    ]
-  end
-end
-```
+## Run the sample
 
-Restart the server. Sign in and click the **Calendar** link in the nav bar. If everything works, you should see a JSON dump of events on the user's calendar.
+1. Run the following command in your CLI to start the application.
 
-## Display the results
+    ```Shell
+    rails server
+    ```
 
-Now you can add HTML and CSS to display the results in a more user-friendly manner.
-
-Open `./app/views/calendar/index.html.erb` and replace its contents with the following.
-
-```html
-<h1>Calendar</h1>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Organizer</th>
-      <th scope="col">Subject</th>
-      <th scope="col">Start</th>
-      <th scope="col">End</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= event['organizer']['emailAddress']['name'] %></td>
-        <td><%= event['subject'] %></td>
-        <td><%= event['start']['dateTime'].to_time(:utc).localtime.strftime('%-m/%-d/%y %l:%M %p') %></td>
-        <td><%= event['end']['dateTime'].to_time(:utc).localtime.strftime('%-m/%-d/%y %l:%M %p') %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-```
-
-That will loop through a collection of events and add a table row for each one. Remove the `render json: @events` line from the `index` action in `./app/controllers/calendar_controller.rb` and the app should now render a table of events.
-
-![A screenshot of the table of events](/Images/add-msgraph-01.png)
-
-## Next steps
-
-Now that you have a working app that calls Microsoft Graph, you can experiment and add new features. Visit the [Microsoft Graph documentation](https://developer.microsoft.com/graph/docs/concepts/overview) to see all of the data you can access with Microsoft Graph.
+1. Open a browser and browse to `http://localhost:3000`.
