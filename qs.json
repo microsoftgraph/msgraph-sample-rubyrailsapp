@@ -1,7 +1,7 @@
 {
-  "sourceDirectory": ".\\Demos\\04-add-msgraph",
+  "sourceDirectory": ".\\Demos\\03-add-msgraph",
   "exampleConfigFile": ".\\graph-tutorial\\config\\oauth_environment_variables.rb.example",
   "configFile": "oauth_environment_variables.rb",
   "archiveFile": "RubyRailsQuickStart.zip",
-  "zipReadMe": ".\\graph-tutorial\\README.md"
+  "zipReadMe": ".\\README.md"
 }
