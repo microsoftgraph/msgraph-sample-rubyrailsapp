@@ -1,6 +1,6 @@
-# Extend the Ruby on Rails app for Azure AD Authentication
+<!-- markdownlint-disable MD002 MD041 -->
 
-In this demo you will extend the application from the previous demo to support authentication with Azure AD. This is required to obtain the necessary OAuth access token to call the Microsoft Graph. In this step you will integrate the [omniauth-oauth2](https://github.com/omniauth/omniauth-oauth2) gem into the application, and create a custom OmniAuth strategy.
+In this exercise you will extend the application from the previous exercise to support authentication with Azure AD. This is required to obtain the necessary OAuth access token to call the Microsoft Graph. In this step you will integrate the [omniauth-oauth2](https://github.com/omniauth/omniauth-oauth2) gem into the application, and create a custom OmniAuth strategy.
 
 First, create a separate file to hold your app ID and secret. Create a new file called `oauth_environment_variables.rb` in the `./config` folder, and add the following code.
 
@@ -12,7 +12,8 @@ ENV['AZURE_SCOPES'] = 'openid profile email offline_access user.read calendars.r
 
 Replace `YOUR_APP_ID_HERE` with the application ID from the Application Registration Portal, and replace `YOUR_APP_SECRET_HERE` with the password you generated.
 
-> **Important:** If you're using source control such as git, now would be a good time to exclude the `oauth_environment_variables.rb` file from source control to avoid inadvertently leaking your app ID and password.
+> [!IMPORTANT]
+> If you're using source control such as git, now would be a good time to exclude the `oauth_environment_variables.rb` file from source control to avoid inadvertently leaking your app ID and password.
 
 Now add code to load this file if it's present. Open the `./config/environment.rb` file and add the following code before the `Rails.application.initialize!` line.
 
@@ -287,11 +288,11 @@ Now update the view to use the `signout` action. Open `./app/views/layouts/appli
 
 Restart the server and go through the sign-in process. You should end up back on the home page, but the UI should change to indicate that you are signed-in.
 
-![A screenshot of the home page after signing in](/Images/add-aad-auth-01.png)
+![A screenshot of the home page after signing in](./images/add-aad-auth-01.png)
 
 Click the user avatar in the top right corner to access the **Sign Out** link. Clicking **Sign Out** resets the session and returns you to the home page.
 
-![A screenshot of the dropdown menu with the Sign Out link](/Images/add-aad-auth-02.png)
+![A screenshot of the dropdown menu with the Sign Out link](./images/add-aad-auth-02.png)
 
 ## Refreshing tokens
 
@@ -350,7 +351,3 @@ def access_token
   end
 end
 ```
-
-## Next steps
-
-Now that you've added authentication, you can continue to the next module, [Extend the Ruby on Rails app for Microsoft Graph](../04-add-msgraph/README.md).
