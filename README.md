@@ -4,7 +4,7 @@ This module will introduce you to working with Microsoft Graph to access data in
 
 ## Lab - Build Ruby on Rails apps with Microsoft Graph
 
-In this lab you will create a Ruby on Rails web application using the Azure AD v2 authentication endpoint to access data in Office 365 using Microsoft Graph.
+In this lab you will create a Ruby on Rails web application using the Microsoft identity platform authentication endpoint to access data in Office 365 using Microsoft Graph.
 
 - [Ruby Microsoft Graph tutorial](https://docs.microsoft.com/graph/training/ruby-tutorial)
 
