@@ -59,11 +59,11 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'omniauth-oauth2', '~> 1.5'
+gem 'omniauth-oauth2', '~> 1.6'
 
-gem 'httparty', '~> 0.16.2'
+gem 'httparty', '~> 0.17.1'
 
-gem 'nokogiri', '~> 1.8'
+gem 'nokogiri', '~> 1.10.7'
 
 gem 'activerecord-session_store', '~> 1.1'
 
