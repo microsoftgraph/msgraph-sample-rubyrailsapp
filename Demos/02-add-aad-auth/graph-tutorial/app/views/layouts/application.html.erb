@@ -54,7 +54,7 @@
               </li>
             <% else %>
               <li class="nav-item">
-                <%= link_to "Sign In", {:controller => :auth, :action => :signin}, :class => "nav-link" %>
+                <%= link_to "Click here to sign in", "/auth/microsoft_graph_auth", method: :post, class: "nav-link" %>
               </li>
             <% end %>
           </ul>
