@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   root 'home#index'
 
   # Add future routes here
-  get 'auth/signin'
   get 'auth/signout'
 
   # Add route for OmniAuth callback

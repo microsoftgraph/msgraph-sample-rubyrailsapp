@@ -2,10 +2,6 @@
 class AuthController < ApplicationController
   skip_before_action :set_user
 
-  def signin
-    redirect_to '/auth/microsoft_graph_auth'
-  end
-
   def callback
     # Access the authentication hash for omniauth
     data = request.env['omniauth.auth']
