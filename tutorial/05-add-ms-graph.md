@@ -91,7 +91,6 @@ class CalendarController < ApplicationController
 
   def index
     @events = get_calendar_events access_token || []
-    render json: @events
   rescue RuntimeError => e
     @errors = [
       {
