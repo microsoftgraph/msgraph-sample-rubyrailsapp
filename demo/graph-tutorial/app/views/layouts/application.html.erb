@@ -32,7 +32,7 @@
             </li>
             <% if @user_name %>
               <li class="nav-item" data-turbolinks="false">
-                <%= link_to "Calendar", {:controller => :calendar, :action => :index}, class: "nav-link#{' active' if controller.controller_name == 'calendar'}" %>
+                <%= link_to "Calendar", "/calendar", class: "nav-link#{' active' if controller.controller_name == 'calendar'}" %>
               </li>
             <% end %>
           </ul>
