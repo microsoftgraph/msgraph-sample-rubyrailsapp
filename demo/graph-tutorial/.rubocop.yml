@@ -4,7 +4,6 @@ AllCops:
   Exclude:
     - 'db/**/*'
     - 'test/**/*'
-    - 'app/helpers/**/*'
     - 'node_modules/**/*'
 
 Style/HashEachMethods:

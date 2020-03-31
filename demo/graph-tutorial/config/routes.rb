@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'calendar/index'
+  get 'calendar', to: 'calendar#index'
   get 'home/index'
   root 'home#index'
 

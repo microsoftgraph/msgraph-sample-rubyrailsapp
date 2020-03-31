@@ -61,7 +61,7 @@ Now that the OmniAuth middleware is configured, you can move on to adding sign-i
 
     For now all this does is render the hash provided by OmniAuth. You'll use this to verify that sign-in is working before moving on.
 
-1. Add the routes to `./config/routes.rb`.
+1. Add the routes to **./config/routes.rb**.
 
     ```ruby
     # Add route for OmniAuth callback

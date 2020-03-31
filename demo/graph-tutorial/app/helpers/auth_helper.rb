@@ -1,2 +1,3 @@
+# AuthHelper
 module AuthHelper
 end
