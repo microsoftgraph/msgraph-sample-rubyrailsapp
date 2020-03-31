@@ -13,7 +13,7 @@ This tutorial teaches you how to build a Ruby on Rails web app that uses the Mic
 Before you start this tutorial, you should have [Ruby](https://www.ruby-lang.org/en/downloads/) installed on your development machine. If you do not have Ruby, visit the previous link for download options.
 
 > [!NOTE]
-> This tutorial was written with Ruby version 2.4.4. The steps in this guide may work with other versions, but that has not been tested.
+> This tutorial was written with Ruby version 2.6.5. The steps in this guide may work with other versions, but that has not been tested.
 
 ## Feedback
 
