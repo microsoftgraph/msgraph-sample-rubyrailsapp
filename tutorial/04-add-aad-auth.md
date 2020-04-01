@@ -13,7 +13,7 @@ In this exercise you will extend the application from the previous exercise to s
 
 1. Open **./config/environment.rb** and add the following code before the `Rails.application.initialize!` line.
 
-    :::code language="ruby" source="../demo/graph-tutorial/config/environment.rb" id="LoadOAuthSettingsSnippet":::
+    :::code language="ruby" source="../demo/graph-tutorial/config/environment.rb" id="LoadOAuthSettingsSnippet" highlight="4-6":::
 
 ## Setup OmniAuth
 
