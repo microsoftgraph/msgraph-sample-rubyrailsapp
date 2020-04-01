@@ -29,7 +29,6 @@ Before moving on, install some additional gems that you will use later:
 - [omniauth-oauth2](https://github.com/omniauth/omniauth-oauth2) for handling sign-in and OAuth token flows.
 - [omniauth-rails_csrf_protection](https://github.com/cookpad/omniauth-rails_csrf_protection) for adding CSRF protection to OmniAuth.
 - [httparty](https://github.com/jnunemaker/httparty) for making calls to Microsoft Graph.
-- [nokogiri](https://github.com/sparklemotion/nokogiri) to process HTML bodies of email.
 - [activerecord-session_store](https://github.com/rails/activerecord-session_store) for storing sessions in the database.
 
 1. Open **./Gemfile** and add the following lines.
