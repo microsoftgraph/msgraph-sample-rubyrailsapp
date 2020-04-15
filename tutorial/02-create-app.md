@@ -1,218 +1,93 @@
 <!-- markdownlint-disable MD002 MD041 -->
 
-In this exercise you will use [Ruby on Rails](https://rubyonrails.org/) to build a web app. If you don't already have Rails installed, you can install it from your command-line interface (CLI) with the following command.
+In this exercise you will use [Ruby on Rails](https://rubyonrails.org/) to build a web app.
 
-```Shell
-gem install rails
-```
+1. If you don't already have Rails installed, you can install it from your command-line interface (CLI) with the following command.
 
-Open your CLI, navigate to a directory where you have rights to create files, and run the following command to create a new Rails app.
+    ```Shell
+    gem install rails -v 6.0.2.2
+    ```
 
-```Shell
-rails new graph-tutorial
-```
+1. Open your CLI, navigate to a directory where you have rights to create files, and run the following command to create a new Rails app.
 
-Rails creates a new directory called `graph-tutorial` and scaffolds a Rails app. Navigate to this new directory and enter the following command to start a local web server.
+    ```Shell
+    rails new graph-tutorial
+    ```
 
-```Shell
-rails server
-```
+1. Navigate to this new directory and enter the following command to start a local web server.
 
-Open your browser and navigate to `http://localhost:3000`. If everything is working, you will see a "Yay! You're on Rails!" message. If you don't see that message, check the [Rails getting started guide](http://guides.rubyonrails.org/).
+    ```Shell
+    rails server
+    ```
+
+1. Open your browser and navigate to `http://localhost:3000`. If everything is working, you will see a "Yay! You're on Rails!" message. If you don't see that message, check the [Rails getting started guide](http://guides.rubyonrails.org/).
+
+## Install gems
 
 Before moving on, install some additional gems that you will use later:
 
 - [omniauth-oauth2](https://github.com/omniauth/omniauth-oauth2) for handling sign-in and OAuth token flows.
 - [omniauth-rails_csrf_protection](https://github.com/cookpad/omniauth-rails_csrf_protection) for adding CSRF protection to OmniAuth.
 - [httparty](https://github.com/jnunemaker/httparty) for making calls to Microsoft Graph.
-- [nokogiri](https://github.com/sparklemotion/nokogiri) to process HTML bodies of email.
 - [activerecord-session_store](https://github.com/rails/activerecord-session_store) for storing sessions in the database.
 
-Run the following commands in your CLI.
+1. Open **./Gemfile** and add the following lines.
 
-```Shell
-bundle add omniauth-oauth2
-bundle add omniauth-rails_csrf_protection
-bundle add httparty
-bundle add nokogiri
-bundle add activerecord-session_store
-rails generate active_record:session_migration
-```
+    :::code language="ruby" source="../demo/graph-tutorial/Gemfile" id="GemFileSnippet":::
 
-The last command generates output like the following:
+1. In your CLI, run the following command.
 
-```Shell
-create  db/migrate/20180618172216_add_sessions_table.rb
-```
+    ```Shell
+    bundle install
+    ```
 
-Open the file that was created and locate the following line.
+1. In your CLI, run the following commands to configure the database for storing sessions.
 
-```ruby
-class AddSessionsTable < ActiveRecord::Migration
-```
+    ```Shell
+    rails generate active_record:session_migration
+    rake db:migrate
+    ```
 
-Change that line to the following.
+1. Create a new file called `session_store.rb` in the **./config/initializers** directory, and add the following code.
 
-```ruby
-class AddSessionsTable < ActiveRecord::Migration[5.2]
-```
-
-> [!NOTE]
-> This assumes that you are using Rails 5.2.x. If you are using a different version, replace `5.2` with your version.
-
-Save the file and run the following command.
-
-```Shell
-rake db:migrate
-```
-
-Finally, configure Rails to use the new session store. Create a new file called `session_store.rb` in the `./config/initializers` directory, and add the following code.
-
-```ruby
-Rails.application.config.session_store :active_record_store, key: '_graph_app_session'
-```
+    :::code language="ruby" source="../demo/graph-tutorial/config/initializers/session_store.rb" id="SessionStoreSnippet":::
 
 ## Design the app
 
-Start by updating the global layout for the app. Open `./app/views/layouts/application.html.erb` and replace its contents with the following.
+In this section you'll create the basic UI for the app.
 
-```html
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Ruby Graph Tutorial</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+1. Open **./app/views/layouts/application.html.erb** and replace its contents with the following.
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
-      integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
-      integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
-      integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+    :::code language="html" source="../demo/graph-tutorial/app/views/layouts/application.html.erb" id="LayoutSnippet":::
 
-  <body>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <div class="container">
-        <%= link_to "Ruby Graph Tutorial", root_path, class: "navbar-brand" %>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-          aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <%= link_to "Home", root_path, class: "nav-link#{' active' if controller.controller_name == 'home'}" %>
-            </li>
-            <% if @user_name %>
-              <li class="nav-item" data-turbolinks="false">
-                <a class="nav-link" href="#">Calendar</a>
-              </li>
-            <% end %>
-          </ul>
-          <ul class="navbar-nav justify-content-end">
-            <li class="nav-item">
-              <a class="nav-link" href="https://developer.microsoft.com/graph/docs/concepts/overview" target="_blank">
-                <i class="fas fa-external-link-alt mr-1"></i>Docs
-              </a>
-            </li>
-            <% if @user_name %>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                  <% if @user_avatar %>
-                    <img src=<%= @user_avatar %> class="rounded-circle align-self-center mr-2" style="width: 32px;">
-                  <% else %>
-                    <i class="far fa-user-circle fa-lg rounded-circle align-self-center mr-2" style="width: 32px;"></i>
-                  <% end %>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                  <h5 class="dropdown-item-text mb-0"><%= @user_name %></h5>
-                  <p class="dropdown-item-text text-muted mb-0"><%= @user_email %></p>
-                  <div class="dropdown-divider"></div>
-                  <a href="#" class="dropdown-item">Sign Out</a>
-                </div>
-              </li>
-            <% else %>
-              <li class="nav-item">
-                <a href="#" class="nav-link">Sign In</a>
-              </li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <main role="main" class="container">
-      <% if @errors %>
-        <% @errors.each do |error| %>
-          <div class="alert alert-danger" role="alert">
-            <p class="mb-3"><%= error[:message] %></p>
-            <%if error[:debug] %>
-              <pre class="alert-pre border bg-light p-2"><code><%= error[:debug] %></code></pre>
-            <% end %>
-          </div>
-        <% end %>
-      <% end %>
-      <%= yield %>
-    </main>
-  </body>
-</html>
-```
+    This code adds [Bootstrap](http://getbootstrap.com/) for simple styling, and [Font Awesome](https://fontawesome.com/) for some simple icons. It also defines a global layout with a nav bar.
 
-This code adds [Bootstrap](http://getbootstrap.com/) for simple styling, and [Font Awesome](https://fontawesome.com/) for some simple icons. It also defines a global layout with a nav bar.
+1. Open **./app/assets/stylesheets/application.css** and add the following to the end of the file.
 
-Now open `./app/assets/stylesheets/application.css` and add the following to the end of the file.
+    :::code language="css" source="../demo/graph-tutorial/app/assets/stylesheets/application.css" id="CssSnippet":::
 
-```css
-body {
-  padding-top: 4.5rem;
-}
+1. Generate a home page controller with the following command.
 
-.alert-pre {
-  word-wrap: break-word;
-  word-break: break-all;
-  white-space: pre-wrap;
-}
-```
+    ```Shell
+    rails generate controller Home index
+    ```
 
-Now replace the default page with a new one. Generate a home page controller with the following command.
+1. Configure the `index` action on the `Home` controller as the default page for the app. Open **./config/routes.rb** and replace its contents with the following
 
-```Shell
-rails generate controller Home index
-```
+    ```ruby
+    Rails.application.routes.draw do
+      get 'home/index'
+      root 'home#index'
 
-Then configure the `index` action on the `Home` controller as the default page for the app. Open `./config/routes.rb` and replace the contents with the following
+      # Add future routes here
 
-```ruby
-Rails.application.routes.draw do
-  get 'home/index'
-  root 'home#index'
+    end
+    ```
 
-  # Add future routes here
+1. Open **./app/view/home/index.html.erb** and replace its contents with the following.
 
-end
-```
+    :::code language="html" source="../demo/graph-tutorial/app/views/home/index.html.erb" id="HomeSnippet":::
 
-Now open the `./app/view/home/index.html.erb` file and replace its contents with the following.
+1. Save all of your changes and restart the server. Now, the app should look very different.
 
-```html
-<div class="jumbotron">
-  <h1>Ruby Graph Tutorial</h1>
-  <p class="lead">This sample app shows how to use the Microsoft Graph API to access Outlook and OneDrive data from Ruby</p>
-  <% if @user_name %>
-    <h4>Welcome <%= @user_name %>!</h4>
-    <p>Use the navigation bar at the top of the page to get started.</p>
-  <% else %>
-    <a href="#" class="btn btn-primary btn-large">Click here to sign in</a>
-  <% end %>
-</div>
-```
-
-Save all of your changes and restart the server. Now, the app should look very different.
-
-![A screenshot of the redesigned home page](./images/create-app-01.png)
+    ![A screenshot of the redesigned home page](./images/create-app-01.png)

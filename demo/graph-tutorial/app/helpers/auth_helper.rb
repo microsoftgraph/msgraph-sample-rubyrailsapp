@@ -1,0 +1,3 @@
+# AuthHelper
+module AuthHelper
+end
