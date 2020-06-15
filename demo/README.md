@@ -55,6 +55,12 @@ If you don't have a Microsoft account, there are a couple of options to get a fr
     bundle install
     ```
 
+1. In your CLI, run the following command to install yarn packages.
+
+    ```Shell
+    yarn install
+    ```
+
 1. In your CLI, run the following command to initialize the app's database.
 
     ```Shell
