@@ -88,6 +88,8 @@ In this section you'll create the basic UI for the app.
 
     :::code language="html" source="../demo/graph-tutorial/app/views/home/index.html.erb" id="HomeSnippet":::
 
+1. Add a PNG file named **no-profile-photo.png** in the **./app/assets/images** directory.
+
 1. Save all of your changes and restart the server. Now, the app should look very different.
 
     ![A screenshot of the redesigned home page](./images/create-app-01.png)

@@ -48,11 +48,11 @@
             </li>
             <% if @user_name %>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link avatar-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                   <% if @user_avatar %>
-                    <img src=<%= @user_avatar %> class="rounded-circle align-self-center mr-2" style="width: 32px;">
+                    <img src=<%= @user_avatar %> class="rounded-circle align-self-center mr-2 profile-photo">
                   <% else %>
-                    <i class="far fa-user-circle fa-lg rounded-circle align-self-center mr-2" style="width: 32px;"></i>
+                    <%= image_tag "no-profile-photo.png", class: "rounded-circle align-self-center mr-2 profile-photo" %>
                   <% end %>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
