@@ -79,6 +79,10 @@ You'll build on this later as you implement more Microsoft Graph features into t
         - The `$top` parameter limits the results to 50 events.
     - For a successful response, it returns the array of items contained in the `value` key.
 
+1. Add a new method to the Graph helper to lookup an [IANA time zone identifier](https://www.iana.org/time-zones) based on a Windows time zone name. This is necessary because Microsoft Graph can return time zones as Windows time zone names, and the Ruby **DateTime** class requires IANA time zone identifiers.
+
+    :::code language="ruby" source="../demo/graph-tutorial/app/helpers/graph_helper.rb" id="ZoneMappingSnippet":::
+
 1. Open **./app/controllers/calendar_controller.rb** and replace its entire contents with the following.
 
     ```ruby

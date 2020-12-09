@@ -51,6 +51,7 @@ module GraphHelper
   end
   # </GetCalendarSnippet>
 
+  # <ZoneMappingSnippet>
   TIME_ZONE_MAP = {
     'Dateline Standard Time' => 'Etc/GMT+12',
     'UTC-11' => 'Etc/GMT+11',
@@ -193,6 +194,9 @@ module GraphHelper
 
   def get_iana_from_windows(windows_tz_name)
     iana = TIME_ZONE_MAP[windows_tz_name]
+    # If no mapping found, assume the supplied
+    # value was already an IANA identifier
     iana ||= windows_tz_name
   end
+  # </ZoneMappingSnippet>
 end
