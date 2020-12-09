@@ -2,6 +2,9 @@
 # Licensed under the MIT License.
 
 Rails.application.routes.draw do
+  get 'calendar/index'
+  get 'calendar', to: 'calendar#index'
+  get 'calendar/new'
   get 'home/index'
   root 'home#index'
 
