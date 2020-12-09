@@ -1,3 +1,0 @@
-# AuthHelper
-module AuthHelper
-end

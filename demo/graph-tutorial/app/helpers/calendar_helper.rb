@@ -1,3 +1,0 @@
-# CalendarHelper
-module CalendarHelper
-end
