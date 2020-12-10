@@ -32,10 +32,10 @@ In this exercise you will incorporate the Microsoft Graph into the application. 
                         query: params
         elsif method.upcase == 'POST'
           headers['Content-Type'] = 'application/json'
-          HTTPParty.post "#{GRAPH_HOST}#{endpoint}",
-            headers: headers,
-            query: params,
-            body: payload ? payload.to_json : nil
+          HTTParty.post "#{GRAPH_HOST}#{endpoint}",
+                        headers: headers,
+                        query: params,
+                        body: payload ? payload.to_json : nil
         end
       end
     end

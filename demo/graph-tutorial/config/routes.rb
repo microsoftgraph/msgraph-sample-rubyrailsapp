@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'calendar/index'
   get 'calendar', to: 'calendar#index'
   get 'calendar/new'
+  post 'calendar/new', to: 'calendar#create'
   get 'home/index'
   root 'home#index'
 

@@ -22,4 +22,31 @@ class CalendarController < ApplicationController
       }
     ]
   end
+
+  # <CreateEventRouteSnippet>
+  def create
+    # Semicolon-delimited list, split to an array
+    attendees = params[:ev_attendees].split(';')
+
+    # Create the event
+    response = create_event access_token,
+                            user_timezone,
+                            params[:ev_subject],
+                            params[:ev_start],
+                            params[:ev_end],
+                            attendees,
+                            params[:ev_body]
+
+    # Redirect back to the calendar list
+    redirect_to({ :action => 'index' })
+
+  rescue RuntimeError => e
+    @errors = [
+      {
+        message: 'Microsoft Graph returned an error creating the event.',
+        debug: e
+      }
+    ]
+  end
+  # </CreateEventRouteSnippet>
 end

@@ -20,10 +20,10 @@ module GraphHelper
                     query: params
     elsif method.upcase == 'POST'
       headers['Content-Type'] = 'application/json'
-      HTTPParty.post "#{GRAPH_HOST}#{endpoint}",
-        headers: headers,
-        query: params,
-        body: payload ? payload.to_json : nil
+      HTTParty.post "#{GRAPH_HOST}#{endpoint}",
+                    headers: headers,
+                    query: params,
+                    body: payload ? payload.to_json : nil
     end
   end
 
@@ -42,7 +42,7 @@ module GraphHelper
       '$orderby': 'start/dateTime',
       '$top': 50
     }
-    puts startDateTime.iso8601()
+
     response = make_api_call 'GET', get_events_url, token, headers, query
 
     raise response.parsed_response.to_s || "Request returned #{response.code}" unless response.code == 200
@@ -50,6 +50,52 @@ module GraphHelper
     response.parsed_response['value']
   end
   # </GetCalendarSnippet>
+
+  # <CreateEventSnippet>
+  def create_event(token, timezone, subject, startDateTime, endDateTime, attendees, body)
+    create_event_url = '/v1.0/me/events'
+
+    # Create an event object
+    # https://docs.microsoft.com/graph/api/resources/event?view=graph-rest-1.0
+    new_event = {
+      'subject': subject,
+      'start': {
+        'dateTime': startDateTime,
+        'timeZone': timezone
+      },
+      'end': {
+        'dateTime': endDateTime,
+        'timeZone': timezone
+      }
+    }
+
+    if !attendees.empty?
+      attendee_array = []
+      # Create an attendee object
+      # https://docs.microsoft.com/graph/api/resources/attendee?view=graph-rest-1.0
+      attendees.each { |email| attendee_array.push({ 'type': 'required', 'emailAddress': { 'address': email }})}
+      new_event['attendees'] = attendee_array
+    end
+
+    if !body.empty?
+      # Create an itemBody object
+      # https://docs.microsoft.com/graph/api/resources/itembody?view=graph-rest-1.0
+      new_event['body'] = {
+        'contentType': 'text',
+        'content': body
+      }
+    end
+
+    response = make_api_call 'POST',
+                             create_event_url,
+                             token,
+                             nil,
+                             nil,
+                             new_event
+
+    raise response.parsed_response.to_s || "Request returned #{response.code}" unless response.code == 201
+  end
+  # </CreateEventSnippet>
 
   # <ZoneMappingSnippet>
   TIME_ZONE_MAP = {
