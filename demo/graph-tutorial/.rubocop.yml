@@ -1,0 +1,12 @@
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - 'bin/**/*'
+    - 'db/**/*'
+    - 'test/**/*'
+    - 'node_modules/**/*'
+
+Metrics/ModuleLength:
+  CountAsOne: ['array', 'hash']

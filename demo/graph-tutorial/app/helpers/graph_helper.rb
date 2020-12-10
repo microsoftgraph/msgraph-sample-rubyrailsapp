@@ -12,35 +12,38 @@ module GraphHelper
     headers[:Authorization] = "Bearer #{token}"
     headers[:Accept] = 'application/json'
 
-    params = params || {}
+    params ||= {}
 
-    if method.upcase == 'GET'
+    case method.upcase
+    when 'GET'
       HTTParty.get "#{GRAPH_HOST}#{endpoint}",
-                    headers: headers,
-                    query: params
-    elsif method.upcase == 'POST'
+                   :headers => headers,
+                   :query => params
+    when 'POST'
       headers['Content-Type'] = 'application/json'
       HTTParty.post "#{GRAPH_HOST}#{endpoint}",
-                    headers: headers,
-                    query: params,
-                    body: payload ? payload.to_json : nil
+                    :headers => headers,
+                    :query => params,
+                    :body => payload ? payload.to_json : nil
+    else
+      raise "HTTP method #{method.upcase} not implemented"
     end
   end
 
   # <GetCalendarSnippet>
-  def get_calendar_view(token, startDateTime, endDateTime, timezone)
+  def get_calendar_view(token, start_datetime, end_datetime, timezone)
     get_events_url = '/v1.0/me/calendarview'
 
     headers = {
-      'Prefer': "outlook.timezone=\"#{timezone}\""
+      'Prefer' => "outlook.timezone=\"#{timezone}\""
     }
 
     query = {
-      'startDateTime': startDateTime.iso8601(),
-      'endDateTime': endDateTime.iso8601(),
-      '$select': 'subject,organizer,start,end',
-      '$orderby': 'start/dateTime',
-      '$top': 50
+      'startDateTime' => start_datetime.iso8601,
+      'endDateTime' => end_datetime.iso8601,
+      '$select' => 'subject,organizer,start,end',
+      '$orderby' => 'start/dateTime',
+      '$top' => 50
     }
 
     response = make_api_call 'GET', get_events_url, token, headers, query
@@ -52,37 +55,37 @@ module GraphHelper
   # </GetCalendarSnippet>
 
   # <CreateEventSnippet>
-  def create_event(token, timezone, subject, startDateTime, endDateTime, attendees, body)
+  def create_event(token, timezone, subject, start_datetime, end_datetime, attendees, body)
     create_event_url = '/v1.0/me/events'
 
     # Create an event object
     # https://docs.microsoft.com/graph/api/resources/event?view=graph-rest-1.0
     new_event = {
-      'subject': subject,
-      'start': {
-        'dateTime': startDateTime,
-        'timeZone': timezone
+      'subject' => subject,
+      'start' => {
+        'dateTime' => start_datetime,
+        'timeZone' => timezone
       },
-      'end': {
-        'dateTime': endDateTime,
-        'timeZone': timezone
+      'end' => {
+        'dateTime' => end_datetime,
+        'timeZone' => timezone
       }
     }
 
-    if !attendees.empty?
+    unless attendees.empty?
       attendee_array = []
       # Create an attendee object
       # https://docs.microsoft.com/graph/api/resources/attendee?view=graph-rest-1.0
-      attendees.each { |email| attendee_array.push({ 'type': 'required', 'emailAddress': { 'address': email }})}
+      attendees.each { |email| attendee_array.push({ 'type' => 'required', 'emailAddress' => { 'address' => email } }) }
       new_event['attendees'] = attendee_array
     end
 
-    if !body.empty?
+    unless body.empty?
       # Create an itemBody object
       # https://docs.microsoft.com/graph/api/resources/itembody?view=graph-rest-1.0
       new_event['body'] = {
-        'contentType': 'text',
-        'content': body
+        'contentType' => 'text',
+        'content' => body
       }
     end
 
@@ -236,13 +239,13 @@ module GraphHelper
     'Tonga Standard Time' => 'Pacific/Tongatapu',
     'Samoa Standard Time' => 'Pacific/Apia',
     'Line Islands Standard Time' => 'Pacific/Kiritimati'
-  }
+  }.freeze
 
   def get_iana_from_windows(windows_tz_name)
     iana = TIME_ZONE_MAP[windows_tz_name]
     # If no mapping found, assume the supplied
     # value was already an IANA identifier
-    iana ||= windows_tz_name
+    iana || windows_tz_name
   end
   # </ZoneMappingSnippet>
 end

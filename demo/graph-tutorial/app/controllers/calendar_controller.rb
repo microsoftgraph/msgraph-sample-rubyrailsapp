@@ -10,15 +10,15 @@ class CalendarController < ApplicationController
     time_zone = get_iana_from_windows(user_timezone)
 
     # Calculate the start and end of week in the user's time zone
-    startDateTime = Date.today.beginning_of_week(:sunday).in_time_zone(time_zone).to_time()
-    endDateTime = startDateTime.advance(days: 7)
+    start_datetime = Date.today.beginning_of_week(:sunday).in_time_zone(time_zone).to_time
+    end_datetime = start_datetime.advance(:days => 7)
 
-    @events = get_calendar_view access_token, startDateTime, endDateTime, user_timezone || []
+    @events = get_calendar_view access_token, start_datetime, end_datetime, user_timezone || []
   rescue RuntimeError => e
     @errors = [
       {
-        message: 'Microsoft Graph returned an error getting events.',
-        debug: e
+        :message => 'Microsoft Graph returned an error getting events.',
+        :debug => e
       }
     ]
   end
@@ -29,22 +29,21 @@ class CalendarController < ApplicationController
     attendees = params[:ev_attendees].split(';')
 
     # Create the event
-    response = create_event access_token,
-                            user_timezone,
-                            params[:ev_subject],
-                            params[:ev_start],
-                            params[:ev_end],
-                            attendees,
-                            params[:ev_body]
+    create_event access_token,
+                 user_timezone,
+                 params[:ev_subject],
+                 params[:ev_start],
+                 params[:ev_end],
+                 attendees,
+                 params[:ev_body]
 
     # Redirect back to the calendar list
     redirect_to({ :action => 'index' })
-
   rescue RuntimeError => e
     @errors = [
       {
-        message: 'Microsoft Graph returned an error creating the event.',
-        debug: e
+        :message => 'Microsoft Graph returned an error creating the event.',
+        :debug => e
       }
     ]
   end

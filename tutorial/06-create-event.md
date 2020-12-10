@@ -13,7 +13,7 @@ In this section you will add the ability to create events on the user's calendar
 1. Open **./config/routes.rb** and add the new route.
 
     ```ruby
-    post 'calendar/new', to: 'calendar#create'
+    post 'calendar/new', :to => 'calendar#create'
     ```
 
 1. Open **./app/views/calendar/new.html.erb** and replace its contents with the following.

@@ -21,21 +21,24 @@ In this exercise you will incorporate the Microsoft Graph into the application. 
 
       def make_api_call(method, endpoint, token, headers = nil, params = nil, payload = nil)
         headers ||= {}
-        headers[:Authorization] =  "Bearer #{token}"
+        headers[:Authorization] = "Bearer #{token}"
         headers[:Accept] = 'application/json'
 
-        params = params || {}
+        params ||= {}
 
-        if method.upcase == 'GET'
+        case method.upcase
+        when 'GET'
           HTTParty.get "#{GRAPH_HOST}#{endpoint}",
-                        headers: headers,
-                        query: params
-        elsif method.upcase == 'POST'
+                       :headers => headers,
+                       :query => params
+        when 'POST'
           headers['Content-Type'] = 'application/json'
           HTTParty.post "#{GRAPH_HOST}#{endpoint}",
-                        headers: headers,
-                        query: params,
-                        body: payload ? payload.to_json : nil
+                        :headers => headers,
+                        :query => params,
+                        :body => payload ? payload.to_json : nil
+        else
+          raise "HTTP method #{method.upcase} not implemented"
         end
       end
     end
@@ -62,7 +65,7 @@ You'll build on this later as you implement more Microsoft Graph features into t
 1. Add the new route to **./config/routes.rb**.
 
     ```ruby
-    get 'calendar', to: 'calendar#index'
+    get 'calendar', :to => 'calendar#index'
     ```
 
 1. Add a new method to the Graph helper to [get a calendar view](https://docs.microsoft.com/graph/api/calendar-list-calendarview?view=graph-rest-1.0). Open **./app/helpers/graph_helper.rb** and add the following method to the `GraphHelper` module.
@@ -95,16 +98,16 @@ You'll build on this later as you implement more Microsoft Graph features into t
         time_zone = get_iana_from_windows(user_timezone)
 
         # Calculate the start and end of week in the user's time zone
-        startDateTime = Date.today.beginning_of_week(:sunday).in_time_zone(time_zone).to_time()
-        endDateTime = startDateTime.advance(days: 7)
+        start_datetime = Date.today.beginning_of_week(:sunday).in_time_zone(time_zone).to_time
+        end_datetime = start_datetime.advance(:days => 7)
 
-        @events = get_calendar_view access_token, startDateTime, endDateTime, user_timezone || []
+        @events = get_calendar_view access_token, start_datetime, end_datetime, user_timezone || []
         render json: @events
       rescue RuntimeError => e
         @errors = [
           {
-            message: 'Microsoft Graph returned an error getting events.',
-            debug: e
+            :message => 'Microsoft Graph returned an error getting events.',
+            :debug => e
           }
         ]
       end
