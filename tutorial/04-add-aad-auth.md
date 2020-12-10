@@ -85,20 +85,50 @@ Now that the OmniAuth middleware is configured, you can move on to adding sign-i
       },
       "extra": {
         "raw_info": {
-          "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users/$entity",
-          "id": "eb52b3b2-c4ac-4b4f-bacd-d5f7ece55df0",
-          "businessPhones": [
-            "+1 425 555 0109"
-          ],
-          "displayName": "Adele Vance",
-          "givenName": "Adele",
-          "jobTitle": "Retail Manager",
-          "mail": "AdeleV@contoso.onmicrosoft.com",
-          "mobilePhone": null,
-          "officeLocation": "18/2111",
-          "preferredLanguage": "en-US",
-          "surname": "Vance",
-          "userPrincipalName": "AdeleV@contoso.onmicrosoft.com"
+          "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users(displayName,mail,mailboxSettings,userPrincipalName)/$entity",
+          "displayName": "Lynne Robbins",
+          "mail": "LynneR@contoso.OnMicrosoft.com",
+          "userPrincipalName": "LynneR@contoso.OnMicrosoft.com",
+          "id": "d294e784-840e-4f9f-bb1e-95c0a75f2f18@2d18179c-4386-4cbd-8891-7fd867c4f62e",
+          "mailboxSettings": {
+            "archiveFolder": "AAMkAGI2...",
+            "timeZone": "Pacific Standard Time",
+            "delegateMeetingMessageDeliveryOptions": "sendToDelegateOnly",
+            "dateFormat": "M/d/yyyy",
+            "timeFormat": "h:mm tt",
+            "automaticRepliesSetting": {
+              "status": "disabled",
+              "externalAudience": "all",
+              "internalReplyMessage": "",
+              "externalReplyMessage": "",
+              "scheduledStartDateTime": {
+                "dateTime": "2020-12-09T17:00:00.0000000",
+                "timeZone": "UTC"
+              },
+              "scheduledEndDateTime": {
+                "dateTime": "2020-12-10T17:00:00.0000000",
+                "timeZone": "UTC"
+              }
+            },
+            "language": {
+              "locale": "en-US",
+              "displayName": "English (United States)"
+            },
+            "workingHours": {
+              "daysOfWeek": [
+                "monday",
+                "tuesday",
+                "wednesday",
+                "thursday",
+                "friday"
+              ],
+              "startTime": "08:00:00.0000000",
+              "endTime": "17:00:00.0000000",
+              "timeZone": {
+                "name": "Pacific Standard Time"
+              }
+            }
+          }
         }
       }
     }
@@ -123,6 +153,10 @@ Now that you can get tokens, it's time to implement a way to store them in the a
 
     def user_email
       session[:user_email]
+    end
+
+    def user_timezone
+      session[:user_timezone]
     end
 
     def access_token

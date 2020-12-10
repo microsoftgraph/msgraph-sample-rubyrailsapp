@@ -1,7 +1,3 @@
-# Copyright (c) Microsoft Corporation.
-# Licensed under the MIT License.
-
-# AuthController
 class AuthController < ApplicationController
   skip_before_action :set_user
 

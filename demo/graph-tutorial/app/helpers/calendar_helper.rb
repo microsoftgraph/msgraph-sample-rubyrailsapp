@@ -1,3 +1,2 @@
-# CalendarHelper
 module CalendarHelper
 end

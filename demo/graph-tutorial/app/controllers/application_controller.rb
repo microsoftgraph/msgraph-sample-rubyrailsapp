@@ -26,6 +26,8 @@ class ApplicationController < ActionController::Base
     # userPrincipalName
     session[:user_email] = auth_hash.dig(:extra, :raw_info, :mail) ||
                            auth_hash.dig(:extra, :raw_info, :userPrincipalName)
+    # Save the user's time zone
+    session[:user_timezone] = auth_hash.dig(:extra, :raw_info, :mailboxSettings, :timeZone)
   end
   # </SaveInSessionSnippet>
 
@@ -35,6 +37,10 @@ class ApplicationController < ActionController::Base
 
   def user_email
     session[:user_email]
+  end
+
+  def user_timezone
+    session[:user_timezone]
   end
 
   # <AccessTokenSnippet>

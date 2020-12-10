@@ -3,6 +3,7 @@
 
 <!-- <CalendarSnippet> -->
 <h1>Calendar</h1>
+<a href="/calendar/new" class="btn btn-light btn-sm mb-3">New event</a>
 <table class="table">
   <thead>
     <tr>
@@ -17,8 +18,8 @@
       <tr>
         <td><%= event['organizer']['emailAddress']['name'] %></td>
         <td><%= event['subject'] %></td>
-        <td><%= event['start']['dateTime'].to_time(:utc).localtime.strftime('%-m/%-d/%y %l:%M %p') %></td>
-        <td><%= event['end']['dateTime'].to_time(:utc).localtime.strftime('%-m/%-d/%y %l:%M %p') %></td>
+        <td><%= event['start']['dateTime'].to_time(:utc).strftime('%-m/%-d/%Y %l:%M %p') %></td>
+        <td><%= event['end']['dateTime'].to_time(:utc).strftime('%-m/%-d/%Y %l:%M %p') %></td>
       </tr>
     <% end %>
   </tbody>

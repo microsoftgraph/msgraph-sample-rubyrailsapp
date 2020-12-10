@@ -5,7 +5,7 @@ In this exercise you will use [Ruby on Rails](https://rubyonrails.org/) to build
 1. If you don't already have Rails installed, you can install it from your command-line interface (CLI) with the following command.
 
     ```Shell
-    gem install rails -v 6.0.2.2
+    gem install rails -v 6.0.3.4
     ```
 
 1. Open your CLI, navigate to a directory where you have rights to create files, and run the following command to create a new Rails app.
@@ -60,7 +60,7 @@ In this section you'll create the basic UI for the app.
 
     :::code language="html" source="../demo/graph-tutorial/app/views/layouts/application.html.erb" id="LayoutSnippet":::
 
-    This code adds [Bootstrap](http://getbootstrap.com/) for simple styling, and [Font Awesome](https://fontawesome.com/) for some simple icons. It also defines a global layout with a nav bar.
+    This code adds [Bootstrap](http://getbootstrap.com/) for simple styling, and [Fabric Core](https://developer.microsoft.com/fluentui#/get-started#fabric-core) for some simple icons. It also defines a global layout with a nav bar.
 
 1. Open **./app/assets/stylesheets/application.css** and add the following to the end of the file.
 
@@ -87,6 +87,8 @@ In this section you'll create the basic UI for the app.
 1. Open **./app/view/home/index.html.erb** and replace its contents with the following.
 
     :::code language="html" source="../demo/graph-tutorial/app/views/home/index.html.erb" id="HomeSnippet":::
+
+1. Add a PNG file named **no-profile-photo.png** in the **./app/assets/images** directory.
 
 1. Save all of your changes and restart the server. Now, the app should look very different.
 
