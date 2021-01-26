@@ -49,7 +49,7 @@ Take a moment to review what this code does. It makes a simple GET or POST reque
 For example, to use the `make_api_call` method to do a GET to `https://graph.microsoft.com/v1.0/me?$select=displayName`, you could call it like so:
 
 ```ruby
-make_api_call 'GET', '/v1.0/me', access_token, { '$select': 'displayName' }
+make_api_call 'GET', '/v1.0/me', access_token, {}, { '$select': 'displayName' }
 ```
 
 You'll build on this later as you implement more Microsoft Graph features into the app.
