@@ -3,7 +3,7 @@
 
 # <LoadOAuthSettingsSnippet>
 # Load the Rails application.
-require_relative 'application'
+require_relative "application"
 
 # Load OAuth settings
 oauth_environment_variables = File.join(Rails.root, 'config', 'oauth_environment_variables.rb')

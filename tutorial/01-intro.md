@@ -25,8 +25,8 @@ You should also have either a personal Microsoft account with a mailbox on Outlo
 > [!NOTE]
 > This tutorial was written with the following versions of the required tools. The steps in this guide may work with other versions, but that has not been tested.
 >
-> - Ruby version 2.6.6.
-> - SQLite3 version 3.31.1
+> - Ruby version 3.0.1
+> - SQLite3 version 3.35.5
 > - Node.js version 14.15.0
 > - Yarn version 1.22.0
 
