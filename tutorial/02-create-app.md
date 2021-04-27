@@ -5,7 +5,7 @@ In this exercise you will use [Ruby on Rails](https://rubyonrails.org/) to build
 1. If you don't already have Rails installed, you can install it from your command-line interface (CLI) with the following command.
 
     ```Shell
-    gem install rails -v 6.0.3.4
+    gem install rails -v 6.1.3.1
     ```
 
 1. Open your CLI, navigate to a directory where you have rights to create files, and run the following command to create a new Rails app.
