@@ -1,0 +1,96 @@
+<!-- Copyright (c) Microsoft Corporation.
+     Licensed under the MIT License. -->
+
+<!-- <LayoutSnippet> -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ruby Graph Tutorial</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <link rel="shortcut icon" href="favicon.png"/>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous">
+    <link rel="stylesheet"
+      href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/11.0.0/css/fabric.min.css"/>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <div class="container">
+        <%= link_to "Ruby Graph Tutorial", root_path, class: "navbar-brand" %>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+          aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <%= link_to "Home", root_path, class: "nav-link#{' active' if controller.controller_name == 'home'}" %>
+            </li>
+            <% if @user_name %>
+              <li class="nav-item" data-turbolinks="false">
+                <%= link_to "Calendar", "/calendar", class: "nav-link#{' active' if controller.controller_name == 'calendar'}" %>
+              </li>
+            <% end %>
+          </ul>
+          <ul class="navbar-nav justify-content-end">
+            <li class="nav-item">
+              <a class="nav-link external-link" href="https://developer.microsoft.com/graph/docs/concepts/overview" target="_blank">
+                <i class="ms-Icon ms-Icon--NavigateExternalInline mr-1"></i>Docs
+              </a>
+            </li>
+            <% if @user_name %>
+              <li class="nav-item dropdown">
+                <a class="nav-link avatar-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                  <% if @user_avatar %>
+                    <img src=<%= @user_avatar %> class="rounded-circle align-self-center mr-2 profile-photo">
+                  <% else %>
+                    <%= image_tag "no-profile-photo.png", class: "rounded-circle align-self-center mr-2 profile-photo" %>
+                  <% end %>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <h5 class="dropdown-item-text mb-0"><%= @user_name %></h5>
+                  <p class="dropdown-item-text text-muted mb-0"><%= @user_email %></p>
+                  <div class="dropdown-divider"></div>
+                  <%= link_to "Sign Out", {:controller => :auth, :action => :signout}, :class => "dropdown-item" %>
+                </div>
+              </li>
+            <% else %>
+              <li class="nav-item">
+                <%= link_to "Sign In", "/auth/microsoft_graph_auth", method: :post, class: "nav-link" %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <main role="main" class="container">
+      <% if @errors %>
+        <% @errors.each do |error| %>
+          <div class="alert alert-danger" role="alert">
+            <p class="mb-3"><%= error[:message] %></p>
+            <%if error[:debug] %>
+              <pre class="alert-pre border bg-light p-2"><code><%= error[:debug] %></code></pre>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+      <%= yield %>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+      crossorigin="anonymous"></script>
+
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </body>
+</html>
+<!-- </LayoutSnippet> -->
