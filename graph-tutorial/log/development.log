@@ -78,3 +78,278 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 231ms (Views: 175.7ms | ActiveRecord: 0.9ms | Allocations: 16328)
 
 
+Started GET "/" for ::1 at 2022-09-13 14:59:58 -0700
+  [1m[35m (12.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 24.4ms | Allocations: 590)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 278.1ms | Allocations: 8016)
+Completed 200 OK in 412ms (Views: 321.8ms | ActiveRecord: 1.0ms | Allocations: 16016)
+
+
+Started GET "/" for ::1 at 2022-09-13 15:17:39 -0700
+  [1m[35m (12.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 22.9ms | Allocations: 589)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 414.3ms | Allocations: 19443)
+Completed 200 OK in 563ms (Views: 459.0ms | ActiveRecord: 1.1ms | Allocations: 27457)
+
+
+Started POST "/auth/microsoft_graph_auth" for ::1 at 2022-09-13 15:17:52 -0700
+Started GET "/" for ::1 at 2022-09-13 15:23:14 -0700
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 589)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 67.8ms | Allocations: 8448)
+Completed 200 OK in 96ms (Views: 77.8ms | ActiveRecord: 1.0ms | Allocations: 16468)
+
+
+Started POST "/auth/microsoft_graph_auth" for ::1 at 2022-09-13 15:23:18 -0700
+Started GET "/" for ::1 at 2022-09-13 15:38:59 -0700
+  [1m[35m (10.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 10.7ms | Allocations: 589)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 170.5ms | Allocations: 8448)
+Completed 200 OK in 289ms (Views: 207.5ms | ActiveRecord: 0.9ms | Allocations: 16468)
+
+
+Started POST "/auth/microsoft_graph_auth" for ::1 at 2022-09-13 15:39:02 -0700
+Started GET "/auth/microsoft_graph_auth/callback?code=0.AQEANRF7vPPFLUiPzk59Yxk70l-kjLxk0KJHtssL779L1q-cADQ.AgABAAIAAAD--DLA3VO7QrddgJg7WevrAgDs_wQA9P-ysyCjN6qu6JG-IjchTUHiMHyIylw5Xkg5fe2tMIp5htbwXdsO_dWojtFylz5BoVDoT7szQAmrH29_LmGUTeK6AVk5qvn1AY8anO1XIn7g--SAUecjMkyr6jpGyOfVc2PBIcODf49IVw3zM4E9aqh8j8UZx-Pezag_hUDbAjJMjlMce8-iDBxuHN3R93A58VwGFxZQh9cb7bJqt15AfgSlC1lYM0-UOs6DMtgR-nXlwSoP0Ew2Z7Lra1XvfStuQUZ_FLFOOWPN7EgZoz1yWNYhpFun8_R69Gfj9qF22va0rkB9axOTMfgoutjQMw5PURZBrmTeQ6Otno09_0MQ7NLsHdQNtBXenlpsWcKgEPl9cWHp3E5CoeZaBHpyC2PvJCZ1oZxH8Y39Ln_lRq43MkoEVseFssc1ePVDi8c-GqY6hXCt78b7CHRFN89-5xUp8TJ9VSJk5A7vS4U1HMmw3Gf7zn8EG5goQKY0iaBD1fr3gI3bt_2PR7CQ2_TmgZLRY5q_YGrfz_z-Uctt7t_kFicDClQY3r0peWL88hqT_7TvSGerOTh2n0bhI9WIeSAXXjGdMrvwQlEyOfBE133kX5RW9NEuT0xTaN2b6y1T_AFTxdFQgZ4GVV1D8d7Q5F97S1XxnalURrtZNtxXtcIp6eKoMZhVvalBH113EIHfBPxsenVSK9NZsmb-i2TzUEkmXs96CcMVn51OigvGS7SQN0iaL7YT5hXLBeE6eug0rR7JNP-VSfxGe7rD2Ol0jdEAn31o0TgQYlsWyD-yvwLwsuBhOyin0Y0gvhY0dxq6oflOOoE9xq7voHkMj7BEokgyhuXVToDWi9atLMrkPIJeaWgrX3xR5EH0Ar8c8Kc6-vw5-gaFgZUcm9cxlIHjBzWZXILg2_4rwlCqX8ZoKcM7U622Iw6Z-7EBjrHLuuJTn0jpr4RyXuu8doS5J_gM_mUR_QnwOIu1A5f98JOL&state=411bded85eca6d720aece3714c1a4665515ea5cce57eff35&session_state=ddee93e2-b744-4221-8e3c-60878e9a5d9b" for ::1 at 2022-09-13 15:39:11 -0700
+  
+AbstractController::ActionNotFound (The action 'callback' could not be found for AuthController):
+  
+actionpack (6.1.7) lib/abstract_controller/base.rb:160:in `process'
+actionview (6.1.7) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.1.7) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.1.7) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.1.7) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.1.7) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.1.7) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (6.1.7) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.1.7) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.1.7) lib/action_dispatch/routing/route_set.rb:842:in `call'
+omniauth (2.1.0) lib/omniauth/strategy.rb:470:in `call_app!'
+omniauth (2.1.0) lib/omniauth/strategy.rb:418:in `callback_phase'
+omniauth-oauth2 (1.7.3) lib/omniauth/strategies/oauth2.rb:93:in `callback_phase'
+omniauth (2.1.0) lib/omniauth/strategy.rb:272:in `callback_call'
+omniauth (2.1.0) lib/omniauth/strategy.rb:194:in `call!'
+omniauth (2.1.0) lib/omniauth/strategy.rb:169:in `call'
+omniauth (2.1.0) lib/omniauth/builder.rb:44:in `call'
+rack (2.2.4) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.4) lib/rack/etag.rb:27:in `call'
+rack (2.2.4) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.4) lib/rack/head.rb:12:in `call'
+actionpack (6.1.7) lib/action_dispatch/http/permissions_policy.rb:22:in `call'
+actionpack (6.1.7) lib/action_dispatch/http/content_security_policy.rb:19:in `call'
+rack (2.2.4) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.4) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (6.1.7) lib/active_record/migration.rb:601:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.7) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.7) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.7) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.7) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.7) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.7) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.7) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.7) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/host_authorization.rb:148:in `call'
+rack-mini-profiler (2.3.4) lib/mini_profiler/profiler.rb:393:in `call'
+webpacker (5.4.3) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.7.4) lib/rack/proxy.rb:78:in `call'
+railties (6.1.7) lib/rails/engine.rb:539:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/" for ::1 at 2022-09-13 15:51:00 -0700
+  [1m[35m (15.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 25.3ms | Allocations: 589)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 311.5ms | Allocations: 8455)
+Completed 200 OK in 479ms (Views: 366.4ms | ActiveRecord: 1.2ms | Allocations: 16475)
+
+
+Started POST "/auth/microsoft_graph_auth" for ::1 at 2022-09-13 15:51:04 -0700
+Started GET "/auth/microsoft_graph_auth/callback?code=M.R3_BL2.80404405-8da6-a224-ddd9-95e5ab54db2f&state=0047c57f74637a831f4d5a4e36636db36f44c636dcce1a14" for ::1 at 2022-09-13 15:51:20 -0700
+  
+AbstractController::ActionNotFound (The action 'callback' could not be found for AuthController):
+  
+actionpack (6.1.7) lib/abstract_controller/base.rb:160:in `process'
+actionview (6.1.7) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.1.7) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.1.7) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.1.7) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.1.7) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.1.7) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (6.1.7) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.1.7) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.1.7) lib/action_dispatch/routing/route_set.rb:842:in `call'
+omniauth (2.1.0) lib/omniauth/strategy.rb:470:in `call_app!'
+omniauth (2.1.0) lib/omniauth/strategy.rb:418:in `callback_phase'
+omniauth-oauth2 (1.7.3) lib/omniauth/strategies/oauth2.rb:93:in `callback_phase'
+omniauth (2.1.0) lib/omniauth/strategy.rb:272:in `callback_call'
+omniauth (2.1.0) lib/omniauth/strategy.rb:194:in `call!'
+omniauth (2.1.0) lib/omniauth/strategy.rb:169:in `call'
+omniauth (2.1.0) lib/omniauth/builder.rb:44:in `call'
+rack (2.2.4) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.4) lib/rack/etag.rb:27:in `call'
+rack (2.2.4) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.4) lib/rack/head.rb:12:in `call'
+actionpack (6.1.7) lib/action_dispatch/http/permissions_policy.rb:22:in `call'
+actionpack (6.1.7) lib/action_dispatch/http/content_security_policy.rb:19:in `call'
+rack (2.2.4) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.4) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (6.1.7) lib/active_record/migration.rb:601:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.7) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.7) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.7) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.7) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.7) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.7) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.7) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.7) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/host_authorization.rb:148:in `call'
+rack-mini-profiler (2.3.4) lib/mini_profiler/profiler.rb:393:in `call'
+webpacker (5.4.3) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.7.4) lib/rack/proxy.rb:78:in `call'
+railties (6.1.7) lib/rails/engine.rb:539:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/" for ::1 at 2022-09-13 16:02:56 -0700
+  [1m[35m (12.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 19.7ms | Allocations: 589)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 268.1ms | Allocations: 8450)
+Completed 200 OK in 400ms (Views: 309.2ms | ActiveRecord: 1.1ms | Allocations: 16470)
+
+
+Started POST "/auth/microsoft_graph_auth" for ::1 at 2022-09-13 16:02:59 -0700
+Started GET "/auth/microsoft_graph_auth/callback?code=0.AQEANRF7vPPFLUiPzk59Yxk70l-kjLxk0KJHtssL779L1q-cADQ.AgABAAIAAAD--DLA3VO7QrddgJg7WevrAgDs_wQA9P9M7Q_FE6qBa_HNc5BRc9JiItHBzlCy7jdi1cALXr-NUOLoSKnMN5lskj1003VyFKrlLiriTmNdPcv0aHrqoMIdh1OK0ZFYD-xAws6t20f4jl-cb2-yKMIK07JYEwmHecuabl9eSu5uLkkMlF5EEbMXXLGeB2txEGhOLPxT68-lGWtizKG5weoN6qg18rt4BtmALmkuTCqkmt5264_X6AI15VOad753Tlg3ipgczjfvAA7ZzB547JdinQT3Qtpoh09flVchljSYRzeggZXHLZobiVqEPZ_VQVKfRqaBrBH_kQ2Ue5hT_UvB6YsFkLDdvjxEt9KU2cdOY9WX46cVNOb4TlF1Mkv3PwDbmDbg07__sdEhF6f6cEpHJILjCP9RqgKtjwWrPlRwSHgsRM9KXpOJvSDCCqIhonuE0mPnV4Jp4-YfB3CZxhsk12VcdtoEqQ7niRnn6XTMwqany1-sBZLSO-mHgDCOiip_miMuCEyTFN-RdpQo0RJXxcY17sUO6OnNRzWdke9hbBz6setSoweu1K-DdArmlD-wHm7-5ZWf8LaJTc-JzqkG0uHDr4WfD_4AwHgc9hB3n47L987n9cMiSmvwGpcmNfSd--UWNmfBSi-7EZl4TW0N_Mj1PLC8vsNSb1NYXIWZqcOj1FRh5j6n0OwuNn22clK7W9R0vEVmtJWEFOqv_e4TMA8fwP6QPcryatVQvD_sn6QjtGU0Vn7_IuXKFTnpxOXFl7eDz7FAzWbjIuk6MVnYkFrXtAIAf18oxZLYgDKC5Zf0UrUHBdLHJcl70icL8g-GTBjsTp5z4M4zoyEhJx8nKbiMkMaD95TYmzd5svgTA4QmiFjN9xTu9HaMIfuEs8EgCWvETluLKLE85JRduYvwSew8hz-S90s_NkbauiRtHxnPwqDNK-Hh_1y7js5BFMWHvP3DR2ATZyjtiy8CKjBTn2OeNwjvr5vWayHyX4b5d2U&state=393658ed93663e5e98aeff4fc6b76fd54cf08ea41c625545&session_state=ddee93e2-b744-4221-8e3c-60878e9a5d9b" for ::1 at 2022-09-13 16:03:02 -0700
+  
+ArgumentError (Before process_action callback :set_user has not been defined):
+  
+app/controllers/auth_controller.rb:2:in `<class:AuthController>'
+app/controllers/auth_controller.rb:1:in `<main>'
+Started GET "/" for ::1 at 2022-09-13 16:05:21 -0700
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 6.3ms | Allocations: 589)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 87.2ms | Allocations: 8448)
+Completed 200 OK in 115ms (Views: 96.7ms | ActiveRecord: 0.9ms | Allocations: 16468)
+
+
+Started POST "/auth/microsoft_graph_auth" for ::1 at 2022-09-13 16:05:23 -0700
+Started GET "/auth/microsoft_graph_auth/callback?code=0.AQEANRF7vPPFLUiPzk59Yxk70l-kjLxk0KJHtssL779L1q-cADQ.AgABAAIAAAD--DLA3VO7QrddgJg7WevrAgDs_wQA9P9Z6-mUV6Og4hxRtBPohFSLH5rMlbWfy5v04Xq9eqmmDXWrgLXLz3Oeq19Z_GbLNxOSBVJS0E13twb7gIEDJ969o7m9VJduuDodokbSPXAvC1m4WXPzqA4akUe0TaG8cDfvVyLkpfGZbkEwDf8KfJNLThz9g96rmL8z8MGnMNOKm3dHjj3slMP8_Nzk-hmM1xumXjh0jzWFEHvVGiGRpZCLBQ7Bj6sxW9HuutAc28auQjCUGpGmbu1k-ua-nmkNmFCDVFS_WTX6i8IO-pS6mnJZFAifEp9b9GnyyjmMMF1wwFJyFW319Uzaq7ee-G92EHxpPgkP-_PynswsYfDjWiWwCZ30eI6c_puAWYBIs-tk-V1ObNKecDZW86wcvkFP7VIgvIFoEmAiFO5aYOz75TTFKxa6mZpHlB23z7brEp-jzkTV2sLNMivn7oQECT_Ka812FViphdTUBChk_76cU1T0XnWz9huRInFycmA5K5mh_z3GdaDcFEZUJtmISzjvdd8CcTBldtSSsf1nw-aIsSlkQVG84kwnqvHvhx-HP3Cu6QE9Uhyi2cSFfFZ7ptPYfpe5Qie52bClddN59CBnEKr_98B3NGRl5bNJVECgNi9tUBxWDlAaPZ04w4OfmmU20_xSwKyt0JVpwp1MbT5e8G8WVvR7iMhS2YZXwaZyoqWpfhZKAunURwxjLRaw10a6J4stAw1Br00HUevO4S60l5KXQD1bObkl2-gRBJjpa4eKgIJfj_Uq0nobNpbxrfiguZbrxsspEGrWO7GrQJEYQKMGOCRLM0lPFRvhu7Qz2FL2ojxlk6lV57cAldIxJywMsCrIqJ8sOYHgGfJ_T64nYflGxXUsSoXt3Vt-3QrQOtRHiK2Rxo4H35hjE7FIuH77Bz2Js_PK5hITRmIpMWFEiuBUmNlrKOhs2wKmQ6yp0eHFzVpi4KFH3AG0H-Yu4uTR2jeqRAdktgj1Ug&state=bf59bacfb941573e479cb459ffa81b996d1e7ccbf238f4da&session_state=ddee93e2-b744-4221-8e3c-60878e9a5d9b" for ::1 at 2022-09-13 16:05:27 -0700
+Processing by AuthController#callback as HTML
+  Parameters: {"code"=>"0.AQEANRF7vPPFLUiPzk59Yxk70l-kjLxk0KJHtssL779L1q-cADQ.AgABAAIAAAD--DLA3VO7QrddgJg7WevrAgDs_wQA9P9Z6-mUV6Og4hxRtBPohFSLH5rMlbWfy5v04Xq9eqmmDXWrgLXLz3Oeq19Z_GbLNxOSBVJS0E13twb7gIEDJ969o7m9VJduuDodokbSPXAvC1m4WXPzqA4akUe0TaG8cDfvVyLkpfGZbkEwDf8KfJNLThz9g96rmL8z8MGnMNOKm3dHjj3slMP8_Nzk-hmM1xumXjh0jzWFEHvVGiGRpZCLBQ7Bj6sxW9HuutAc28auQjCUGpGmbu1k-ua-nmkNmFCDVFS_WTX6i8IO-pS6mnJZFAifEp9b9GnyyjmMMF1wwFJyFW319Uzaq7ee-G92EHxpPgkP-_PynswsYfDjWiWwCZ30eI6c_puAWYBIs-tk-V1ObNKecDZW86wcvkFP7VIgvIFoEmAiFO5aYOz75TTFKxa6mZpHlB23z7brEp-jzkTV2sLNMivn7oQECT_Ka812FViphdTUBChk_76cU1T0XnWz9huRInFycmA5K5mh_z3GdaDcFEZUJtmISzjvdd8CcTBldtSSsf1nw-aIsSlkQVG84kwnqvHvhx-HP3Cu6QE9Uhyi2cSFfFZ7ptPYfpe5Qie52bClddN59CBnEKr_98B3NGRl5bNJVECgNi9tUBxWDlAaPZ04w4OfmmU20_xSwKyt0JVpwp1MbT5e8G8WVvR7iMhS2YZXwaZyoqWpfhZKAunURwxjLRaw10a6J4stAw1Br00HUevO4S60l5KXQD1bObkl2-gRBJjpa4eKgIJfj_Uq0nobNpbxrfiguZbrxsspEGrWO7GrQJEYQKMGOCRLM0lPFRvhu7Qz2FL2ojxlk6lV57cAldIxJywMsCrIqJ8sOYHgGfJ_T64nYflGxXUsSoXt3Vt-3QrQOtRHiK2Rxo4H35hjE7FIuH77Bz2Js_PK5hITRmIpMWFEiuBUmNlrKOhs2wKmQ6yp0eHFzVpi4KFH3AG0H-Yu4uTR2jeqRAdktgj1Ug", "state"=>"bf59bacfb941573e479cb459ffa81b996d1e7ccbf238f4da", "session_state"=>"ddee93e2-b744-4221-8e3c-60878e9a5d9b", "provider"=>"microsoft_graph_auth"}
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms | Allocations: 2997)
+
+
+  
+NoMethodError (undefined method `save_in_session' for #<AuthController:0x0000000001f900>
+
+    save_in_session data
+    ^^^^^^^^^^^^^^^):
+  
+app/controllers/auth_controller.rb:9:in `callback'
+Started GET "/" for ::1 at 2022-09-13 16:08:11 -0700
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 589)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 68.5ms | Allocations: 8448)
+Completed 200 OK in 96ms (Views: 77.1ms | ActiveRecord: 0.8ms | Allocations: 16471)
+
+
+Started POST "/auth/microsoft_graph_auth" for ::1 at 2022-09-13 16:08:13 -0700
+Started GET "/auth/microsoft_graph_auth/callback?code=0.AQEANRF7vPPFLUiPzk59Yxk70l-kjLxk0KJHtssL779L1q-cADQ.AgABAAIAAAD--DLA3VO7QrddgJg7WevrAgDs_wQA9P-RzCrDkILjvjNvNLHuom6ZAUXWEx-iwiOFCJov-P1B6NzzLkgrEXl5z1wuazKcxwbV9XbIb1sDZKDjAujk--xv5OMXLWDgart5re1XtmCLQowIuGaUXSaZ130xzyy2x74GS-Duyqs2msmcJEoNUxhursE48yECaChGBiDIe0k4kiBbHIzWgdsL8XOHe6IukCZBZL3h7aqz063PssjNRnCZf1Ij8nTgaqlWOjj8ECIpFgnh075NVEcj3lgSaUn8Ve2spY043WRd-Z5t8XzhQjGaMr3wCG0L7y98uyIyrbf5Y2MsySdxfLKmJxRzdRxcN1U6H0fgiIrP_agUDXRBLsGC_M1JY_ZvabilEszb3JAaYiIApDBCdWaI_8rFHY6iQ-odHYyGD-9fzjPwddYb4R94ynH69DkpQ_K0Lxvb9-o0NJCggbzIjpizVTVXCPGHpExZeubNDT1Oq4YnzGbHDmSU6oARJWczH-TdjJSbYDaWXoK3JSUNGh4DT4JFDBEZJaQlwinN9F1o9W1RVe6mSo66awnMLPqnQe0vQ8dECTqxRsCUYyH26D890QPWnJ924l9-6f9TVkp_LJXEhajpctMEm7xxCYyvarE8BWOWVPK7D-aADZjPiGBbHQD8CXW8_3QFrJScA5ysEG5nqj6_ijhXqSQHFwo_9tz4b61iqkX7YKG0qi72sTXlriXNRiuOUlkNngMdwovFeBs3cfP5MRbI21nteuQQkcXIROBxmvOXzJy7VwnWeu6PX34Z3us_5xAIGSf1R7UZSDcLgXKPyTPzSH4Y2cNNELtU4xmgDJqmcRQI9FOGqY1rik4FdnendIraqzMq5ZU0T1fDXFnIuo9DPktSmy2AbvGUubPdS0IM1qRUyycannAJA-4TY4dgJMEXf6hST-BTZRGZDoyzIhRsMjmNfPIknbAnfcjUKH_HIRt1RA1Kwsfkj68TDDwxMFvvON94oU55OWXE&state=d1a8d9b0ad5ef3fae9809e9c87dfadf1e3dcd1401ed8427f&session_state=ddee93e2-b744-4221-8e3c-60878e9a5d9b" for ::1 at 2022-09-13 16:08:17 -0700
+Processing by AuthController#callback as HTML
+  Parameters: {"code"=>"0.AQEANRF7vPPFLUiPzk59Yxk70l-kjLxk0KJHtssL779L1q-cADQ.AgABAAIAAAD--DLA3VO7QrddgJg7WevrAgDs_wQA9P-RzCrDkILjvjNvNLHuom6ZAUXWEx-iwiOFCJov-P1B6NzzLkgrEXl5z1wuazKcxwbV9XbIb1sDZKDjAujk--xv5OMXLWDgart5re1XtmCLQowIuGaUXSaZ130xzyy2x74GS-Duyqs2msmcJEoNUxhursE48yECaChGBiDIe0k4kiBbHIzWgdsL8XOHe6IukCZBZL3h7aqz063PssjNRnCZf1Ij8nTgaqlWOjj8ECIpFgnh075NVEcj3lgSaUn8Ve2spY043WRd-Z5t8XzhQjGaMr3wCG0L7y98uyIyrbf5Y2MsySdxfLKmJxRzdRxcN1U6H0fgiIrP_agUDXRBLsGC_M1JY_ZvabilEszb3JAaYiIApDBCdWaI_8rFHY6iQ-odHYyGD-9fzjPwddYb4R94ynH69DkpQ_K0Lxvb9-o0NJCggbzIjpizVTVXCPGHpExZeubNDT1Oq4YnzGbHDmSU6oARJWczH-TdjJSbYDaWXoK3JSUNGh4DT4JFDBEZJaQlwinN9F1o9W1RVe6mSo66awnMLPqnQe0vQ8dECTqxRsCUYyH26D890QPWnJ924l9-6f9TVkp_LJXEhajpctMEm7xxCYyvarE8BWOWVPK7D-aADZjPiGBbHQD8CXW8_3QFrJScA5ysEG5nqj6_ijhXqSQHFwo_9tz4b61iqkX7YKG0qi72sTXlriXNRiuOUlkNngMdwovFeBs3cfP5MRbI21nteuQQkcXIROBxmvOXzJy7VwnWeu6PX34Z3us_5xAIGSf1R7UZSDcLgXKPyTPzSH4Y2cNNELtU4xmgDJqmcRQI9FOGqY1rik4FdnendIraqzMq5ZU0T1fDXFnIuo9DPktSmy2AbvGUubPdS0IM1qRUyycannAJA-4TY4dgJMEXf6hST-BTZRGZDoyzIhRsMjmNfPIknbAnfcjUKH_HIRt1RA1Kwsfkj68TDDwxMFvvON94oU55OWXE", "state"=>"d1a8d9b0ad5ef3fae9809e9c87dfadf1e3dcd1401ed8427f", "session_state"=>"ddee93e2-b744-4221-8e3c-60878e9a5d9b", "provider"=>"microsoft_graph_auth"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms | Allocations: 257)
+
+
+Started GET "/" for ::1 at 2022-09-13 16:08:17 -0700
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 108)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 48.5ms | Allocations: 3980)
+Completed 200 OK in 51ms (Views: 49.4ms | ActiveRecord: 0.2ms | Allocations: 4687)
+
+
