@@ -1,5 +1,7 @@
 class AuthController < ApplicationController
 
+  skip_before_action :set_user
+  
   # <CallbackSnippet>
   def callback
     # Access the authentication hash for omniauth
@@ -12,5 +14,11 @@ class AuthController < ApplicationController
   end
   # </CallbackSnippet>
 
+  # <SignOutSnippet>
+  def signout
+    reset_session
+    redirect_to root_url
+  end
+  # </SignOutSnippet>
   
 end
