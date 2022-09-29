@@ -1170,3 +1170,169 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 55ms (Views: 53.4ms | ActiveRecord: 0.2ms | Allocations: 4571)
 
 
+Started GET "/" for ::1 at 2022-09-29 12:12:57 -0700
+  [1m[35m (16.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 18.8ms | Allocations: 588)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 303.8ms | Allocations: 14102)
+Completed 200 OK in 411ms (Views: 334.2ms | ActiveRecord: 9.5ms | Allocations: 17400)
+
+
+Started GET "/favicon.png" for ::1 at 2022-09-29 12:12:58 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.png"):
+  
+Started POST "/auth/microsoft_graph_auth" for ::1 at 2022-09-29 12:13:01 -0700
+Started GET "/auth/microsoft_graph_auth/callback?code=0.ARoANRF7vPPFLUiPzk59Yxk70l-kjLxk0KJHtssL779L1q-cADQ.AgABAAIAAAD--DLA3VO7QrddgJg7WevrAgDs_wQA9P-bvgYLgqwYIB9Fyl6ER3nVKhIx84Y9jySFXQulaAYc9uzDexrv0NK7xScpdDAoEmS-2CRMA86F-XLoUWxmqxRaFrw178rMskjixRmvTHWvXKMrjwXWK7kwyCJQX3kLGjiQwb3Od1UAw8kG3I0dgAaez_s8sethrTnYzktBWZ5GlWeM-awiWYctwT2PXO64VULEm3uptuEyoe5d-Bxz-N4tlUMDt_avtEDQq1tMxW7Y5vsjAhpsovli87e1yIGeX_T17TIsyTWhvwXv76_CPNHeQIBnKe3CHXaru90QMuhHa1HevcEliaii50FT9MNmWzs0yzZEN8jhZcdDrzarFZJf1Zk5M7n5SWGx-DaiS06yDpFWmUkCZNWbqWiHjo3BqwteiBSTJDo7JRsDlNOTnzZWHNXOM-yQB740BIZ0zOc9ZQr9cHAO3Kl6Zo-yKqwOoj6-_WBw8YIJqNT_rj8Fzt2vC59ItbHCjN4klY8wVFSc95zYI2E19bd6SUuhG2XhvmDPFzxTYkvW3mDYrLPkpgPU5wWKnvKJYTcAXU_esd8ZgHHIhhg-B1UDq455Kg_qV_sktnb5pZyUPm8VJkgedrwVZxuC5VYt_JwMXG4UiOuoJExC1gqAooGTLKvR6q83s5_oUnImVrUcBdWWDCPzbPw2GsQoLIOU4QsZqTtsn1sJ8TvB4Tk0ardl49FKo4ubZoiEe9X_iEyNZNMqZNGtC1sqyAamtnBrcHiqLs3hjaNPV1K_TXzUdsLG2aWcw5ennyNRTpVk_er2PGXv3h0tHQsG76BBgxpJrV-qauNarCGOT7sB_K4cps2-sW-gz__5NXv941cCEaBblJ_IFnAhh1KP5I_64-ymS_G9mjqjvqVFbl1GH8GtCkaX6M3U4udyprtunf12XAZ1vG2DVYYSoTkenlfRNtRPXusocyHuZ5V2nDxR5yROwmYLuMPIEanG6MtctXnF_5g&state=4ae923aa9701546754eb96e1feabf834258bf1d161444294&session_state=ddee93e2-b744-4221-8e3c-60878e9a5d9b" for ::1 at 2022-09-29 12:13:06 -0700
+Processing by AuthController#callback as HTML
+  Parameters: {"code"=>"0.ARoANRF7vPPFLUiPzk59Yxk70l-kjLxk0KJHtssL779L1q-cADQ.AgABAAIAAAD--DLA3VO7QrddgJg7WevrAgDs_wQA9P-bvgYLgqwYIB9Fyl6ER3nVKhIx84Y9jySFXQulaAYc9uzDexrv0NK7xScpdDAoEmS-2CRMA86F-XLoUWxmqxRaFrw178rMskjixRmvTHWvXKMrjwXWK7kwyCJQX3kLGjiQwb3Od1UAw8kG3I0dgAaez_s8sethrTnYzktBWZ5GlWeM-awiWYctwT2PXO64VULEm3uptuEyoe5d-Bxz-N4tlUMDt_avtEDQq1tMxW7Y5vsjAhpsovli87e1yIGeX_T17TIsyTWhvwXv76_CPNHeQIBnKe3CHXaru90QMuhHa1HevcEliaii50FT9MNmWzs0yzZEN8jhZcdDrzarFZJf1Zk5M7n5SWGx-DaiS06yDpFWmUkCZNWbqWiHjo3BqwteiBSTJDo7JRsDlNOTnzZWHNXOM-yQB740BIZ0zOc9ZQr9cHAO3Kl6Zo-yKqwOoj6-_WBw8YIJqNT_rj8Fzt2vC59ItbHCjN4klY8wVFSc95zYI2E19bd6SUuhG2XhvmDPFzxTYkvW3mDYrLPkpgPU5wWKnvKJYTcAXU_esd8ZgHHIhhg-B1UDq455Kg_qV_sktnb5pZyUPm8VJkgedrwVZxuC5VYt_JwMXG4UiOuoJExC1gqAooGTLKvR6q83s5_oUnImVrUcBdWWDCPzbPw2GsQoLIOU4QsZqTtsn1sJ8TvB4Tk0ardl49FKo4ubZoiEe9X_iEyNZNMqZNGtC1sqyAamtnBrcHiqLs3hjaNPV1K_TXzUdsLG2aWcw5ennyNRTpVk_er2PGXv3h0tHQsG76BBgxpJrV-qauNarCGOT7sB_K4cps2-sW-gz__5NXv941cCEaBblJ_IFnAhh1KP5I_64-ymS_G9mjqjvqVFbl1GH8GtCkaX6M3U4udyprtunf12XAZ1vG2DVYYSoTkenlfRNtRPXusocyHuZ5V2nDxR5yROwmYLuMPIEanG6MtctXnF_5g", "state"=>"4ae923aa9701546754eb96e1feabf834258bf1d161444294", "session_state"=>"ddee93e2-b744-4221-8e3c-60878e9a5d9b", "provider"=>"microsoft_graph_auth"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 450)
+
+
+Started GET "/" for ::1 at 2022-09-29 12:13:07 -0700
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 45)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 69.1ms | Allocations: 5072)
+Completed 200 OK in 72ms (Views: 70.0ms | ActiveRecord: 0.6ms | Allocations: 5809)
+
+
+Started GET "/calendar" for ::1 at 2022-09-29 12:13:10 -0700
+Processing by CalendarController#index as HTML
+Completed 200 OK in 846ms (Views: 7.1ms | ActiveRecord: 0.2ms | Allocations: 6764)
+
+
+Started GET "/" for ::1 at 2022-09-29 12:24:03 -0700
+  [1m[35m (13.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 18.1ms | Allocations: 490)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 277.8ms | Allocations: 9866)
+Completed 200 OK in 397ms (Views: 314.9ms | ActiveRecord: 0.9ms | Allocations: 17950)
+
+
+Started GET "/calendar" for ::1 at 2022-09-29 12:24:07 -0700
+Processing by CalendarController#index as HTML
+Completed 200 OK in 732ms (Views: 4.4ms | ActiveRecord: 0.2ms | Allocations: 7307)
+
+
+Started GET "/" for ::1 at 2022-09-29 12:33:51 -0700
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 490)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 81.2ms | Allocations: 9867)
+Completed 200 OK in 111ms (Views: 91.3ms | ActiveRecord: 0.8ms | Allocations: 17950)
+
+
+Started GET "/" for ::1 at 2022-09-29 12:33:55 -0700
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 47)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 44.8ms | Allocations: 4590)
+Completed 200 OK in 48ms (Views: 45.9ms | ActiveRecord: 0.2ms | Allocations: 5519)
+
+
+Started GET "/calendar" for ::1 at 2022-09-29 12:33:58 -0700
+Processing by CalendarController#index as HTML
+Completed 200 OK in 746ms (Views: 2.1ms | ActiveRecord: 0.3ms | Allocations: 7045)
+
+
+Started GET "/" for ::1 at 2022-09-29 12:34:04 -0700
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 45)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 48.4ms | Allocations: 4571)
+Completed 200 OK in 52ms (Views: 50.1ms | ActiveRecord: 0.4ms | Allocations: 5336)
+
+
+Started GET "/auth/signout" for ::1 at 2022-09-29 12:34:11 -0700
+Started GET "/auth/favicon.png" for ::1 at 2022-09-29 12:34:11 -0700
+Processing by AuthController#signout as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 28ms (ActiveRecord: 15.8ms | Allocations: 3710)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/auth/favicon.png"):
+  
+Started GET "/" for ::1 at 2022-09-29 12:34:11 -0700
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 114)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 84.1ms | Allocations: 15575)
+Completed 200 OK in 87ms (Views: 85.3ms | ActiveRecord: 0.3ms | Allocations: 16456)
+
+
+Started POST "/auth/microsoft_graph_auth" for ::1 at 2022-09-29 12:34:15 -0700
+Started GET "/auth/microsoft_graph_auth/callback?code=M.R3_BAY.5375d4ef-f37e-662a-4b9a-6bd19b4bb29c&state=09249c7c9e7afd418ee1d7bd0d60fc554ba15c4e37a6f645" for ::1 at 2022-09-29 12:34:21 -0700
+Processing by AuthController#callback as HTML
+  Parameters: {"code"=>"M.R3_BAY.5375d4ef-f37e-662a-4b9a-6bd19b4bb29c", "state"=>"09249c7c9e7afd418ee1d7bd0d60fc554ba15c4e37a6f645", "provider"=>"microsoft_graph_auth"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 326)
+
+
+Started GET "/" for ::1 at 2022-09-29 12:34:23 -0700
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 41)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 46.8ms | Allocations: 4574)
+Completed 200 OK in 49ms (Views: 47.7ms | ActiveRecord: 0.1ms | Allocations: 5288)
+
+
+Started GET "/calendar" for ::1 at 2022-09-29 12:34:26 -0700
+Processing by CalendarController#index as HTML
+Completed 200 OK in 481ms (Views: 1.1ms | ActiveRecord: 0.1ms | Allocations: 2576)
+
+
+Started GET "/" for ::1 at 2022-09-29 12:34:31 -0700
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 41)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 45.7ms | Allocations: 4406)
+Completed 200 OK in 48ms (Views: 46.8ms | ActiveRecord: 0.2ms | Allocations: 5094)
+
+
+Started GET "/auth/signout" for ::1 at 2022-09-29 12:34:35 -0700
+Started GET "/auth/favicon.png" for ::1 at 2022-09-29 12:34:35 -0700
+Processing by AuthController#signout as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 24ms (ActiveRecord: 13.9ms | Allocations: 2973)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/auth/favicon.png"):
+  
+Started GET "/" for ::1 at 2022-09-29 12:34:35 -0700
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 90)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 49.0ms | Allocations: 3898)
+Completed 200 OK in 52ms (Views: 49.9ms | ActiveRecord: 0.2ms | Allocations: 4574)
+
+

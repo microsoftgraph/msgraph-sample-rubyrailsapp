@@ -99,7 +99,7 @@ module GraphHelper
     raise response.parsed_response.to_s || "Request returned #{response.code}" unless response.code == 201
   end
   # </CreateEventSnippet>
-  
+
   # <ZoneMappingSnippet>
   TIME_ZONE_MAP = {
     'Dateline Standard Time' => 'Etc/GMT+12',
