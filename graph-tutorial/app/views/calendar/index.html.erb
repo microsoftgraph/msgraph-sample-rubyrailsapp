@@ -1,0 +1,27 @@
+<!-- Copyright (c) Microsoft Corporation.
+     Licensed under the MIT License. -->
+
+<!-- <CalendarSnippet> -->
+<h1>Calendar</h1>
+<a href="/calendar/new" class="btn btn-light btn-sm mb-3">New event</a>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Organizer</th>
+      <th scope="col">Subject</th>
+      <th scope="col">Start</th>
+      <th scope="col">End</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @events.each do |event| %>
+      <tr>
+        <td><%= event['organizer']['emailAddress']['name'] %></td>
+        <td><%= event['subject'] %></td>
+        <td><%= event['start']['dateTime'].to_time(:utc).strftime('%-m/%-d/%Y %l:%M %p') %></td>
+        <td><%= event['end']['dateTime'].to_time(:utc).strftime('%-m/%-d/%Y %l:%M %p') %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<!-- </CalendarSnippet> -->
