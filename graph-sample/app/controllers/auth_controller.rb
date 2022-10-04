@@ -1,5 +1,6 @@
 # Copyright (c) Microsoft Corporation.
 # Licensed under the MIT License.
+# frozen_string_literal: true
 
 class AuthController < ApplicationController
   skip_before_action :set_user

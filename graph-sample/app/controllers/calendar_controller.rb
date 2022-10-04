@@ -1,5 +1,6 @@
 # Copyright (c) Microsoft Corporation.
 # Licensed under the MIT License.
+# frozen_string_literal: true
 
 # Calendar controller
 class CalendarController < ApplicationController
@@ -11,14 +12,14 @@ class CalendarController < ApplicationController
 
     # Calculate the start and end of week in the user's time zone
     start_datetime = Date.today.beginning_of_week(:sunday).in_time_zone(time_zone).to_time
-    end_datetime = start_datetime.advance(:days => 7)
+    end_datetime = start_datetime.advance(days: 7)
 
     @events = get_calendar_view access_token, start_datetime, end_datetime, user_timezone || []
   rescue RuntimeError => e
     @errors = [
       {
-        :message => 'Microsoft Graph returned an error getting events.',
-        :debug => e
+        message: 'Microsoft Graph returned an error getting events.',
+        debug: e
       }
     ]
   end
@@ -37,12 +38,12 @@ class CalendarController < ApplicationController
                  params[:ev_body]
 
     # Redirect back to the calendar list
-    redirect_to({ :action => 'index' })
+    redirect_to({ action: 'index' })
   rescue RuntimeError => e
     @errors = [
       {
-        :message => 'Microsoft Graph returned an error creating the event.',
-        :debug => e
+        message: 'Microsoft Graph returned an error creating the event.',
+        debug: e
       }
     ]
   end

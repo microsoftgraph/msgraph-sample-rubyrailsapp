@@ -1,30 +1,31 @@
 # Copyright (c) Microsoft Corporation.
 # Licensed under the MIT License.
+# frozen_string_literal: true
 
 require 'httparty'
 
 # Graph API helper methods
 module GraphHelper
-  GRAPH_HOST = 'https://graph.microsoft.com'.freeze
+  GRAPH_HOST = 'https://graph.microsoft.com'
 
-  def make_api_call(method, endpoint, token, headers = nil, params = nil, payload = nil)
-    headers ||= {}
-    headers[:Authorization] = "Bearer #{token}"
-    headers[:Accept] = 'application/json'
+  def make_api_call(method, endpoint, token, headervals = nil, params = nil, payload = nil)
+    headervals ||= {}
+    headervals[:Authorization] = "Bearer #{token}"
+    headervals[:Accept] = 'application/json'
 
     params ||= {}
 
     case method.upcase
     when 'GET'
       HTTParty.get "#{GRAPH_HOST}#{endpoint}",
-                   :headers => headers,
-                   :query => params
+                   headers: headervals,
+                   query: params
     when 'POST'
       headers['Content-Type'] = 'application/json'
       HTTParty.post "#{GRAPH_HOST}#{endpoint}",
-                    :headers => headers,
-                    :query => params,
-                    :body => payload ? payload.to_json : nil
+                    headers: headervals,
+                    query: params,
+                    body: payload ? payload.to_json : nil
     else
       raise "HTTP method #{method.upcase} not implemented"
     end

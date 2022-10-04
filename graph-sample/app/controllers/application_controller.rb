@@ -1,11 +1,11 @@
 # Copyright (c) Microsoft Corporation.
 # Licensed under the MIT License.
+# frozen_string_literal: true
 
 require 'microsoft_graph_auth'
 require 'oauth2'
 
 class ApplicationController < ActionController::Base
-
   before_action :set_user
 
   def set_user
@@ -56,12 +56,12 @@ class ApplicationController < ActionController::Base
 
   def refresh_tokens(token_hash)
     oauth_strategy = OmniAuth::Strategies::MicrosoftGraphAuth.new(
-      nil, ENV['AZURE_APP_ID'], ENV['AZURE_APP_SECRET']
+      nil, ENV.fetch('AZURE_APP_ID'), ENV.fetch('AZURE_APP_SECRET')
     )
 
     token = OAuth2::AccessToken.new(
       oauth_strategy.client, token_hash[:token],
-      :refresh_token => token_hash[:refresh_token]
+      refresh_token: token_hash[:refresh_token]
     )
 
     # Refresh the tokens
