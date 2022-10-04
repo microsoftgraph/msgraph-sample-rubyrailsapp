@@ -1,0 +1,98 @@
+<!-- Copyright (c) Microsoft Corporation.
+     Licensed under the MIT License. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Ruby Graph Sample</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= favicon_link_tag "favicon.png" %>
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+          crossorigin="anonymous">
+    <link rel="stylesheet"
+      href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/11.0.0/css/fabric.min.css"/>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
+        <div class="container">
+          <%= link_to "Ruby Graph Tutorial", root_path, class: "navbar-brand" %>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse me-auto" id="navbarCollapse">
+            <ul class="navbar-nav flex-grow-1">
+              <li class="nav-item">
+                <%= link_to "Home", root_path, class: "nav-link#{' active' if controller.controller_name == 'home'}" %>
+              </li>
+              <% if @user_name %>
+                <li class="nav-item" data-turbolinks="false">
+                  <%= link_to "Calendar", "/calendar", class: "nav-link#{' active' if controller.controller_name == 'calendar'}" %>
+                </li>
+              <% end %>
+            </ul>
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link external-link" href="https://learn.microsoft.com/graph/overview" target="_blank">
+                  <i class="ms-Icon ms-Icon--NavigateExternalInline me-1"></i>Docs
+                </a>
+              </li>
+              <% if @user_name %>
+                <li class="nav-item dropdown">
+                  <a class="nav-link avatar-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                    <% if @user_avatar %>
+                      <img src=<%= @user_avatar %> class="rounded-circle align-self-center me-2 profile-photo">
+                    <% else %>
+                      <%= image_tag "no-profile-photo.png", class: "rounded-circle align-self-center me-2 profile-photo" %>
+                    <% end %>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-end">
+                    <h5 class="dropdown-item-text mb-0"><%= @user_name %></h5>
+                    <p class="dropdown-item-text text-muted mb-0"><%= @user_email %></p>
+                    <div class="dropdown-divider"></div>
+                    <%= link_to "Sign Out", {:controller => :auth, :action => :signout}, :class => "dropdown-item" %>
+                  </div>
+                </li>
+              <% else %>
+                <li class="nav-item" data-turbo="false">
+                  <%= form_tag("/auth/microsoft_graph_auth", method: "post") do %>
+                    <button type="submit" class="btn btn-link nav-link">Sign in</button>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main role="main" class="container">
+      <% if @errors %>
+        <% @errors.each do |error| %>
+          <div class="alert alert-danger" role="alert">
+            <p class="mb-3"><%= error[:message] %></p>
+            <%if error[:debug] %>
+              <pre class="alert-pre border bg-light p-2"><code><%= error[:debug] %></code></pre>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+      <%= yield %>
+    </main>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+            crossorigin="anonymous"></script>
+  </body>
+</html>
