@@ -10,4 +10,9 @@ class CalendarControllerTest < ActionDispatch::IntegrationTest
     get calendar_new_url
     assert_response :success
   end
+
+  test "should post new" do
+    post calendar_new_url, params: {ev_attendees: [], ev_subject: "", ev_start: "", ev_end: "", ev_body: ""}
+    assert_response :success
+  end
 end
