@@ -51,6 +51,3 @@ node_modules/
 .vscode/
 
 oauth_environment_variables.rb
-
-QSTemp/
-RubyRailsQuickStart.zip
