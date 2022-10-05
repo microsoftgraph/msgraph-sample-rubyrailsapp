@@ -1,7 +1,0 @@
-{
-  "sourceDirectory": "./demo",
-  "exampleConfigFile": "./graph-tutorial/config/oauth_environment_variables.rb.example",
-  "configFile": "oauth_environment_variables.rb",
-  "archiveFile": "RubyRailsQuickStart.zip",
-  "zipReadMe": "./README.md"
-}

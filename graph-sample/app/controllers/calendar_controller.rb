@@ -16,6 +16,7 @@ class CalendarController < ApplicationController
 
     @events = get_calendar_view access_token, start_datetime, end_datetime, user_timezone || []
   rescue RuntimeError => e
+    @events = []
     @errors = [
       {
         message: 'Microsoft Graph returned an error getting events.',

@@ -41,6 +41,7 @@ class ApplicationController < ActionController::Base
 
   def access_token
     token_hash = session[:graph_token_hash]
+    return if token_hash.nil?
 
     # Get the expiry time - 5 minutes
     expiry = Time.at(token_hash[:expires_at] - 300)
