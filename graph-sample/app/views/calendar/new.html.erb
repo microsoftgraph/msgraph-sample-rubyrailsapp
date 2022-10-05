@@ -1,0 +1,34 @@
+<!-- Copyright (c) Microsoft Corporation.
+     Licensed under the MIT License. -->
+
+<h1>New event</h1>
+<%= form_with url: "/calendar/new" do |form| %>
+  <div class="mb-2">
+    <%= form.label :ev_subject, "Subject", class:"form-label" %>
+    <%= form.text_field :ev_subject, class: "form-control", required: true %>
+  </div>
+  <div class="mb-2">
+    <%= form.label :ev_attendees, "Attendees", class:"form-label" %>
+    <%= form.text_field :ev_attendees, class: "form-control", placeholder: "Separate multiple email addresses with a semicolon (';')" %>
+  </div>
+  <div class="form-row">
+    <div class="col">
+      <div class="mb-2">
+        <%= form.label :ev_start, "Start", class:"form-label" %>
+        <%= form.datetime_local_field :ev_start, class: "form-control", required: true %>
+      </div>
+    </div>
+    <div class="col">
+      <div class="mb-2">
+        <%= form.label :ev_end, "End", class:"form-label" %>
+        <%= form.datetime_local_field :ev_end, class: "form-control", required: true %>
+      </div>
+    </div>
+  </div>
+  <div class="mb-3">
+    <%= form.label :ev_body, "Body", class:"form-label" %>
+    <%= form.text_area :ev_body, class: "form-control", rows: "3" %>
+  </div>
+  <%= form.submit "Create", class: "btn btn-primary me-2" %>
+  <a class="btn btn-secondary" href="/calendar">Cancel</a>
+<% end %>

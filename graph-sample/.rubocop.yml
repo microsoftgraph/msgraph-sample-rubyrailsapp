@@ -1,0 +1,19 @@
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - 'bin/**/*'
+    - 'db/**/*'
+    - 'test/**/*'
+
+Style/FrozenStringLiteralComment:
+  Exclude:
+    - 'Gemfile'
+    - 'Rakefile'
+    - 'app/channels/**/*'
+    - 'app/jobs/**/*'
+    - 'app/mailers/**/*'
+    - 'app/models/**/*'
+    - 'config/environments/*'
+    - 'config/importmap.rb'
