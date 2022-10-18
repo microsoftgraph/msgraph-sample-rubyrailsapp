@@ -21,7 +21,7 @@ module GraphHelper
                    headers: headervals,
                    query: params
     when 'POST'
-      headers['Content-Type'] = 'application/json'
+      headervals['Content-Type'] = 'application/json'
       HTTParty.post "#{GRAPH_HOST}#{endpoint}",
                     headers: headervals,
                     query: params,
