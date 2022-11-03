@@ -50,7 +50,7 @@ This sample was written for Ruby 3.1.2.
 
 1. Edit the `oauth_environment_variables.rb` file and make the following changes.
     1. Replace `YOUR_APP_ID_HERE` with the **Application Id** you got from the App Registration Portal.
-    1. Replace `YOUR APP PASSWORD HERE` with the password you got from the App Registration Portal.
+    1. Replace `YOUR_APP_SECRET_HERE` with the secret you got from the App Registration Portal.
 
 1. In your command-line interface (CLI), navigate to the `./graph-sample` directory and run the following command to install requirements.
 
