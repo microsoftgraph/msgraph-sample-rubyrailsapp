@@ -164,7 +164,7 @@ GEM
       actionpack (>= 4.2)
       omniauth (~> 2.0)
     public_suffix (5.0.1)
-    puma (5.6.5)
+    puma (6.3.1)
       nio4r (~> 2.0)
     racc (1.7.1)
     rack (2.2.8)
@@ -263,7 +263,7 @@ DEPENDENCIES
   jbuilder
   omniauth-oauth2 (~> 1.8.0)
   omniauth-rails_csrf_protection (~> 1.0.1)
-  puma (~> 5.0)
+  puma (~> 6.3)
   rails (~> 7.0.8)
   selenium-webdriver
   sprockets-rails
