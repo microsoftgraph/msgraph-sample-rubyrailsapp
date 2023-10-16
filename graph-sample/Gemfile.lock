@@ -118,7 +118,7 @@ GEM
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
     jwt (2.5.0)
-    loofah (2.21.3)
+    loofah (2.21.4)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
     mail (2.8.1)
@@ -226,7 +226,7 @@ GEM
       railties (>= 6.0.0)
     thor (1.2.2)
     timeout (0.4.0)
-    turbo-rails (1.4.0)
+    turbo-rails (1.5.0)
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
       railties (>= 6.0.0)
@@ -248,7 +248,7 @@ GEM
     websocket-extensions (0.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.6.11)
+    zeitwerk (2.6.12)
 
 PLATFORMS
   x86_64-linux
