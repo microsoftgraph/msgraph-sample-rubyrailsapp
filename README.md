@@ -1,6 +1,6 @@
 ---
 page_type: sample
-description: This sample demonstrates how to use the Microsoft Graph .NET SDK to access data in Office 365 from Ruby on Rails apps.
+description: This sample demonstrates how to use the Microsoft Graph REST API to access data in Office 365 from Ruby on Rails apps.
 products:
 - ms-graph
 - office-exchange-online
@@ -25,11 +25,11 @@ To run the completed project in this folder, you need the following:
 
 This sample was written for Ruby 3.1.2.
 
-## Register a web application with the Azure Active Directory admin center
+## Register a web application with the Microsoft Entra admin center
 
-1. Open a browser and navigate to the [Azure Active Directory admin center](https://aad.portal.azure.com). Login using a **personal account** (aka: Microsoft Account) or **Work or School Account**.
+1. Open a browser and navigate to the [Microsoft Entra admin center](https://entra.microsoft.com). Login using a **Work or School Account**.
 
-1. Select **Azure Active Directory** in the left-hand navigation, then select **App registrations** under **Manage**.
+1. Expand **Identity** in the left-hand navigation, expand **Applications**, then select **App registrations**.
 
 1. Select **New registration**. On the **Register an application** page, set the values as follows.
 
