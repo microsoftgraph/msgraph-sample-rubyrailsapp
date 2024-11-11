@@ -185,7 +185,7 @@ GEM
     omniauth-rails_csrf_protection (1.0.2)
       actionpack (>= 4.2)
       omniauth (~> 2.0)
-    ostruct (0.6.0)
+    ostruct (0.6.1)
     psych (5.1.2)
       stringio
     public_suffix (6.0.1)
@@ -298,7 +298,7 @@ DEPENDENCIES
   jbuilder
   omniauth-oauth2 (~> 1.8.0)
   omniauth-rails_csrf_protection (~> 1.0.2)
-  ostruct (~> 0.6.0)
+  ostruct (~> 0.6.1)
   puma (~> 6.4)
   rails (~> 7.2.2)
   selenium-webdriver
