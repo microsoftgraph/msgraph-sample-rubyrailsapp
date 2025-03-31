@@ -78,6 +78,6 @@ gem 'omniauth-rails_csrf_protection', '~> 1.0.2'
 # REST calls to Microsoft Graph
 gem 'httparty', '~> 0.22.0'
 # Session storage in database
-gem 'activerecord-session_store', '~> 2.1.0'
+gem 'activerecord-session_store', '~> 2.2.0'
 
 gem "ostruct", "~> 0.6.1"
