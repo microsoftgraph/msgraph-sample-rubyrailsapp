@@ -1,0 +1,52 @@
+<!-- Copyright (c) Microsoft Corporation.
+     Licensed under the MIT License. -->
+
+<div class="card">
+  <div class="card-header">
+    <h2 class="mb-0">Inbox</h2>
+  </div>
+  <div class="card-body">
+    <div class="mb-2">
+      <%= link_to 'New Email', { controller: 'mail', action: 'new' }, class: 'btn btn-primary' %>
+    </div>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">&nbsp;</th>
+            <th scope="col">From</th>
+            <th scope="col">Subject</th>
+            <th scope="col">Received</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @messages.each do |message| %>
+            <tr class="<%= message['isRead'] ? '' : 'table-active' %>">
+              <td>
+                <% unless message['isRead'] %>
+                  <span class="badge badge-primary">New</span>
+                <% end %>
+              </td>
+              <td>
+                <% if message['from'] && message['from']['emailAddress'] %>
+                  <%= message['from']['emailAddress']['name'] %>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to message['subject'], show_mail_path(message['id']) %>
+              </td>
+              <td>
+                <%= Time.parse(message['receivedDateTime']).strftime('%m/%d/%Y %I:%M %p') %>
+              </td>
+            </tr>
+          <% end %>
+          <% if @messages.empty? %>
+            <tr>
+              <td colspan="4" class="text-center">Your inbox is empty.</td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div> 

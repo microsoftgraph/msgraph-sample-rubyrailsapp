@@ -40,6 +40,9 @@
                 <li class="nav-item" data-turbolinks="false">
                   <%= link_to "Calendar", "/calendar", class: "nav-link#{' active' if controller.controller_name == 'calendar'}" %>
                 </li>
+                <li class="nav-item" data-turbolinks="false">
+                  <%= link_to "Mail", "/mail", class: "nav-link#{' active' if controller.controller_name == 'mail'}" %>
+                </li>
               <% end %>
             </ul>
             <ul class="navbar-nav">

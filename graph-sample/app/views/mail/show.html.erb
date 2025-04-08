@@ -1,0 +1,50 @@
+<!-- Copyright (c) Microsoft Corporation.
+     Licensed under the MIT License. -->
+
+<div class="card">
+  <div class="card-header">
+    <div class="d-flex align-items-center">
+      <h2 class="mb-0 flex-grow-1"><%= @message['subject'] %></h2>
+      <%= link_to 'Back to Inbox', { controller: 'mail', action: 'index' }, class: 'btn btn-outline-primary' %>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="mb-3">
+      <% if @message['from'] && @message['from']['emailAddress'] %>
+        <div><strong>From:</strong> <%= @message['from']['emailAddress']['name'] %> &lt;<%= @message['from']['emailAddress']['address'] %>&gt;</div>
+      <% end %>
+      <% if @message['toRecipients'] && !@message['toRecipients'].empty? %>
+        <div><strong>To:</strong>
+          <% @message['toRecipients'].each do |recipient| %>
+            <%= recipient['emailAddress']['name'] %> &lt;<%= recipient['emailAddress']['address'] %>&gt;
+          <% end %>
+        </div>
+      <% end %>
+      <% if @message['ccRecipients'] && !@message['ccRecipients'].empty? %>
+        <div><strong>Cc:</strong>
+          <% @message['ccRecipients'].each do |recipient| %>
+            <%= recipient['emailAddress']['name'] %> &lt;<%= recipient['emailAddress']['address'] %>&gt;
+          <% end %>
+        </div>
+      <% end %>
+      <div><strong>Received:</strong> <%= Time.parse(@message['receivedDateTime']).strftime('%B %d, %Y %I:%M %p') %></div>
+    </div>
+    
+    <hr>
+    
+    <div class="email-body">
+      <% if @message['body'] && @message['body']['contentType'] == 'html' %>
+        <div class="formatted-email">
+          <%= @message['body']['content'].html_safe %>
+        </div>
+      <% else %>
+        <pre class="email-text"><%= @message['body']['content'] if @message['body'] %></pre>
+      <% end %>
+    </div>
+    
+    <div class="mt-3">
+      <%= link_to 'Reply', { controller: 'mail', action: 'new', reply_to: @message['id'] }, class: 'btn btn-primary mr-2' %>
+      <%= link_to 'Back to Inbox', { controller: 'mail', action: 'index' }, class: 'btn btn-outline-secondary' %>
+    </div>
+  </div>
+</div> 

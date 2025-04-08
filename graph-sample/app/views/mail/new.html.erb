@@ -1,0 +1,32 @@
+<!-- Copyright (c) Microsoft Corporation.
+     Licensed under the MIT License. -->
+
+<div class="card">
+  <div class="card-header">
+    <h2 class="mb-0">New Email</h2>
+  </div>
+  <div class="card-body">
+    <%= form_tag({ controller: 'mail', action: 'create' }, method: :post) do %>
+      <div class="form-group">
+        <%= label_tag :recipients, 'To' %>
+        <%= text_field_tag :recipients, params[:to], class: 'form-control', placeholder: 'Enter recipients (separate with semicolons)' %>
+        <small id="recHelp" class="form-text text-muted">Separate multiple email addresses with semicolons.</small>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag :subject, 'Subject' %>
+        <%= text_field_tag :subject, params[:subject], class: 'form-control', placeholder: 'Enter subject' %>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag :body, 'Message' %>
+        <%= text_area_tag :body, params[:body], class: 'form-control', rows: 10, placeholder: 'Enter your message here' %>
+      </div>
+
+      <div class="form-group">
+        <%= submit_tag 'Send', class: 'btn btn-primary mr-2' %>
+        <%= link_to 'Cancel', { controller: 'mail', action: 'index' }, class: 'btn btn-outline-secondary' %>
+      </div>
+    <% end %>
+  </div>
+</div> 

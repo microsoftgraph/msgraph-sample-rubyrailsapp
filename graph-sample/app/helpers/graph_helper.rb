@@ -31,6 +31,101 @@ module GraphHelper
     end
   end
 
+  def get_messages(token, timezone, folder = 'inbox')
+    get_messages_url = "/v1.0/me/mailFolders/#{folder}/messages"
+
+    headers = {
+      'Prefer' => "outlook.timezone=\"#{timezone}\""
+    }
+
+    query = {
+      '$select' => 'id,subject,receivedDateTime,from,isRead',
+      '$orderby' => 'receivedDateTime DESC',
+      '$top' => 25
+    }
+
+    response = make_api_call 'GET', get_messages_url, token, headers, query
+
+    raise response.parsed_response.to_s || "Request returned #{response.code}" unless response.code == 200
+
+    response.parsed_response['value']
+  end
+
+  def get_message(token, message_id, timezone)
+    get_message_url = "/v1.0/me/messages/#{message_id}"
+
+    headers = {
+      'Prefer' => "outlook.timezone=\"#{timezone}\""
+    }
+
+    query = {
+      '$select' => 'id,subject,receivedDateTime,from,toRecipients,ccRecipients,body,isRead'
+    }
+
+    response = make_api_call 'GET', get_message_url, token, headers, query
+
+    raise response.parsed_response.to_s || "Request returned #{response.code}" unless response.code == 200
+
+    # Mark as read
+    update_message_read_status(token, message_id, true) unless response.parsed_response['isRead']
+
+    response.parsed_response
+  end
+
+  def update_message_read_status(token, message_id, is_read)
+    update_message_url = "/v1.0/me/messages/#{message_id}"
+
+    update_data = {
+      'isRead' => is_read
+    }
+
+    response = make_api_call 'POST',
+                             update_message_url,
+                             token,
+                             nil,
+                             nil,
+                             update_data
+
+    raise response.parsed_response.to_s || "Request returned #{response.code}" unless response.code == 200
+  end
+
+  def send_mail(token, recipients, subject, body, content_type = 'Text')
+    send_mail_url = '/v1.0/me/sendMail'
+
+    # Create recipient objects
+    recipient_array = []
+    recipients.each do |email|
+      recipient_array.push({
+                             'emailAddress' => {
+                               'address' => email
+                             }
+                           })
+    end
+
+    # Create message object
+    email_message = {
+      'message' => {
+        'subject' => subject,
+        'body' => {
+          'contentType' => content_type,
+          'content' => body
+        },
+        'toRecipients' => recipient_array
+      }
+    }
+
+    response = make_api_call 'POST',
+                             send_mail_url,
+                             token,
+                             nil,
+                             nil,
+                             email_message
+
+    raise response.parsed_response.to_s || "Request returned #{response.code}" unless response.code == 202
+
+    true
+  end
+
   def get_calendar_view(token, start_datetime, end_datetime, timezone)
     get_events_url = '/v1.0/me/calendarview'
 
