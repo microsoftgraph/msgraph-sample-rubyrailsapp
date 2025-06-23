@@ -184,7 +184,7 @@ GEM
     omniauth-rails_csrf_protection (1.0.2)
       actionpack (>= 4.2)
       omniauth (~> 2.0)
-    ostruct (0.6.1)
+    ostruct (0.6.2)
     pp (0.6.2)
       prettyprint
     prettyprint (0.2.0)
@@ -302,7 +302,7 @@ DEPENDENCIES
   jbuilder
   omniauth-oauth2 (~> 1.8.0)
   omniauth-rails_csrf_protection (~> 1.0.2)
-  ostruct (~> 0.6.1)
+  ostruct (~> 0.6.2)
   puma (~> 6.6)
   rails (~> 7.2.2)
   selenium-webdriver
