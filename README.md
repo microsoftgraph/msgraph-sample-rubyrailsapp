@@ -10,6 +10,9 @@ languages:
 
 # Microsoft Graph sample Ruby on Rails app
 
+> [!IMPORTANT]
+> **This sample is deprecated and is no longer maintained.** The Microsoft Graph tutorial on which it was based has been removed. For current authentication examples, use the [Microsoft identity platform code sample catalog](https://learn.microsoft.com/entra/identity-platform/sample-v2-code) and the current [Microsoft Graph tutorials](https://learn.microsoft.com/graph/tutorials).
+
 [![Ruby](https://github.com/microsoftgraph/msgraph-sample-rubyrailsapp/actions/workflows/ruby.yml/badge.svg)](https://github.com/microsoftgraph/msgraph-sample-rubyrailsapp/actions/workflows/ruby.yml) ![License.](https://img.shields.io/badge/license-MIT-green.svg)
 
 This sample demonstrates how to use the Microsoft Graph REST API to access data in Office 365 from Ruby on Rails apps.
