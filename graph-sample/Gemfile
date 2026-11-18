@@ -80,4 +80,4 @@ gem 'httparty', '~> 0.23.1'
 # Session storage in database
 gem 'activerecord-session_store', '~> 2.2.0'
 
-gem "ostruct", "~> 0.6.1"
+gem "ostruct", "~> 0.6.3"
